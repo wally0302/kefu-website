@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kefu - 服務條款與退換貨政策</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- 自定義配置 (與 Landing Page 保持一致) -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            border: '#1F2937',
+                            primary: '#6366F1',
+                            accent: '#8B5CF6',
+                            glow: '#3B82F6',
+                            danger: '#EF4444',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.1) 0%, rgba(11, 15, 25, 0) 50%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #D1D5DB; /* 稍微調亮文字顏色以利閱讀長文 */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* 條款專用的排版樣式 */
+        .policy-content h2 {
+            color: white;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .policy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #9CA3AF; /* text-gray-400 */
+        }
+
+        .policy-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #9CA3AF;
+        }
+        
+        .policy-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col">
+
+    <!-- 背景裝飾 -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-hero-gradient"></div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="relative z-50 px-6 py-6 max-w-4xl mx-auto w-full flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <i data-lucide="bot" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white">Kefu</span>
+        </a>
+        <a href="index.html" class="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            回首頁
+        </a>
+    </nav>
+
+    <!-- 主要內容區 -->
+    <main class="relative z-10 px-6 py-12 max-w-4xl mx-auto w-full flex-grow">
+        
+        <!-- Page Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">服務條款與退換貨政策</h1>
+            <p class="text-gray-400 text-sm">最後更新日期：2026年1月</p>
+        </div>
+
+        <div class="space-y-8 policy-content">
+            
+            <!-- 前言 -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <p class="!mb-0">
+                    感謝您使用 Kefu（以下稱「本平台」）之服務。本文件說明本平台之服務內容、計費方式、退換貨政策及相關權利義務，以保障雙方權益。
+                </p>
+            </div>
+
+            <!-- 一、服務內容 -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <h2>
+                    <i data-lucide="cpu" class="text-indigo-400 w-6 h-6"></i>
+                    一、服務內容
+                </h2>
+                <p>
+                    Kefu 為基於 AI 代理人（AI Agent）架構之自動化營運工具，用戶可透過購買「Kefu 點數」作為使用本平台 AI 回覆、資料分析、標籤處理及其他相關運算服務之使用額度。
+                </p>
+                <p class="!mb-0">
+                    本平台所提供之服務屬於數位線上即時運算服務，實際服務內容將依用戶操作及系統功能為準。
+                </p>
+            </section>
+
+            <!-- 二、計費與收費方式 -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <h2>
+                    <i data-lucide="credit-card" class="text-indigo-400 w-6 h-6"></i>
+                    二、計費與收費方式
+                </h2>
+                <p>1. <strong>收費方案</strong>：本平台之點數方案以新台幣計價。目前提供以下三種儲值方案（實際內容以平台最新公告為準）：</p>
+                
+                <!-- Pricing Cards Visualized -->
+                <div class="grid md:grid-cols-3 gap-4 my-6">
+                    <!-- Starter -->
+                    <div class="border border-brand-border bg-black/20 rounded-xl p-5 text-center hover:border-indigo-500/50 transition-colors">
+                        <div class="text-sm text-gray-400 mb-1">入門方案 (Starter)</div>
+                        <div class="text-xl font-bold text-white mb-2">NT$ 300</div>
+                        <div class="text-indigo-400 font-bold">1,000 點</div>
+                    </div>
+                    <!-- Growth -->
+                    <div class="border border-indigo-500/30 bg-indigo-900/10 rounded-xl p-5 text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] px-2 py-0.5 rounded-bl">POPULAR</div>
+                        <div class="text-sm text-gray-400 mb-1">成長方案 (Growth)</div>
+                        <div class="text-xl font-bold text-white mb-2">NT$ 850</div>
+                        <div class="text-indigo-400 font-bold">3,000 點</div>
+                        <div class="text-xs text-green-400 mt-1">加贈 5%</div>
+                    </div>
+                    <!-- Pro -->
+                    <div class="border border-brand-border bg-black/20 rounded-xl p-5 text-center hover:border-indigo-500/50 transition-colors">
+                        <div class="text-sm text-gray-400 mb-1">專業方案 (Pro)</div>
+                        <div class="text-xl font-bold text-white mb-2">NT$ 2,000</div>
+                        <div class="text-indigo-400 font-bold">8,000 點</div>
+                        <div class="text-xs text-green-400 mt-1">加贈 10%</div>
+                    </div>
+                </div>
+
+                <p>2. <strong>支付方式</strong>：本平台目前支援信用卡之支付方式。</p>
+                <p class="!mb-0">3. <strong>點數使用規則</strong>：Kefu 點數僅限於本平台內使用。當用戶實際使用服務或系統依用戶指示開始提供服務時，點數將即時自帳戶中扣除。點數無使用期限，儲值後永久有效。</p>
+            </section>
+
+            <!-- 三、退換貨政策 (重點區塊) -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8 relative overflow-hidden">
+                <!-- 裝飾背景 -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <h2>
+                    <i data-lucide="shield-alert" class="text-red-400 w-6 h-6"></i>
+                    三、退換貨政策
+                </h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">1. 法律性質說明</h3>
+                        <p>依據《消費者保護法》及《通訊交易解除權合理例外情事適用準則》，本平台所提供之服務屬於「非以有形媒介提供之數位內容及線上即時運算服務」，其性質為一經開始提供即屬履行中之數位服務。</p>
+                    </div>
+
+                    <div class="bg-red-900/20 border border-red-900/50 p-5 rounded-xl">
+                        <h3 class="text-red-400 font-semibold mb-2 flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                            2. 七日解除權之說明與限制
+                        </h3>
+                        <p class="text-gray-300">用戶於購買前已明確知悉並同意：</p>
+                        <ul class="text-gray-300 !mb-0">
+                            <li>本服務為數位線上即時運算服務。</li>
+                            <li>當用戶實際使用點數，或系統依用戶指示開始提供 AI 運算、分析或回覆服務時，即視為服務已開始提供。</li>
+                            <li class="text-red-300">服務開始提供後，將不適用《消費者保護法》第十九條所規定之七日解除權。</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">3. 退費原則</h3>
+                        <ul>
+                            <li>於服務尚未開始提供前，若依法仍得行使解除權，將依相關法令規定辦理。</li>
+                            <li>一經用戶使用點數或系統已開始提供服務後，點數即不得申請退費或折換為現金。</li>
+                            <li>若因系統異常、技術錯誤或其他非可歸責於用戶之原因，導致點數扣減錯誤，經查證屬實後，本平台將返還相應點數。</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">4. 帳號終止與剩餘點數處理</h3>
+                        <p class="!mb-0">若用戶有重大違反本平台使用規範或相關法令之情形，經合理通知仍未改善者，本平台得終止其帳號及服務。已提供並使用之服務不予退費；尚未使用之點數，將依違規情節、實際情況及相關法令規定，視個案處理。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 四、隱私權與數據安全 -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <h2>
+                    <i data-lucide="lock" class="text-indigo-400 w-6 h-6"></i>
+                    四、隱私權與數據安全
+                </h2>
+                <p class="!mb-0">
+                    本平台重視並致力於保護用戶之資料安全與隱私權。用戶提供之 API 資料、客戶資料及相關數據，僅用於提供與運作用戶專屬之 AI 代理人服務，不會出售、出租或以其他形式提供予未經授權之第三方，除非依法配合主管機關要求或法律另有規定。
+                </p>
+            </section>
+
+            <!-- 五、客服聯繫方式 -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <h2>
+                    <i data-lucide="headphones" class="text-indigo-400 w-6 h-6"></i>
+                    五、客服聯繫方式
+                </h2>
+                <p>如對本服務、點數使用或帳單內容有任何疑問，請透過以下方式與我們聯繫：</p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                    <a href="mailto:support@kefu.ai" class="flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-xl hover:bg-white/10 transition-colors group">
+                        <div class="bg-indigo-500/20 p-2 rounded-lg group-hover:bg-indigo-500/30 transition-colors">
+                            <i data-lucide="mail" class="text-indigo-400 w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">官方信箱</div>
+                            <div class="text-white font-medium">support@kefu.ai</div>
+                        </div>
+                    </a>
+                    <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-xl">
+                        <div class="bg-gray-700/30 p-2 rounded-lg">
+                            <i data-lucide="clock" class="text-gray-400 w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">服務時間 (GMT+8)</div>
+                            <div class="text-white font-medium">週一至週五 10:00 – 18:00</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 六、條款修訂與適用 -->
+            <section class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <h2>
+                    <i data-lucide="file-text" class="text-indigo-400 w-6 h-6"></i>
+                    六、條款修訂與適用
+                </h2>
+                <p class="!mb-0">
+                    本平台保留隨時修訂本服務條款與政策之權利，修訂後內容將公告於平台上，並自公告日起生效。用戶於條款修訂後繼續使用本服務，視為已閱讀、理解並同意修訂後之內容。
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-center border-t border-brand-border/50 bg-brand-dark mt-8">
+        <p class="text-sm text-gray-600">© 2026 Kefu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
