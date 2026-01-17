@@ -38,20 +38,18 @@
                         }
                     },
                     backgroundImage: {
-                        'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.1) 0%, rgba(11, 15, 25, 0) 50%)', // 改為微微的紅色警示光
+                        'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 50%)', // 保持科技藍紫色調
                         'card-gradient': 'linear-gradient(145deg, rgba(17, 24, 39, 1) 0%, rgba(17, 24, 39, 0.6) 100%)',
                         'button-gradient': 'linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%)',
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shake': 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
+                        'float': 'float 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        shake: {
-                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
-                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
-                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
-                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -80,28 +78,9 @@
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
         }
         
-        .glow-text-danger {
-            text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
-        }
-        
         /* 輸入框聚焦時的光暈 */
         .input-glow:focus {
             box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
-        }
-
-        /* 自定義滾動條 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0F19; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #374151; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4B5563; 
         }
     </style>
 </head>
@@ -116,325 +95,156 @@
 
     <!-- 導航欄 -->
     <nav class="relative z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-2">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <i data-lucide="bot" class="text-white w-5 h-5"></i>
+                <i data-lucide="building-2" class="text-white w-5 h-5"></i>
             </div>
-            <span class="text-xl font-bold tracking-tight">Kefu</span>
-        </div>
-        <!-- 簡單的社交連結或 Early Access -->
-        <a href="#waitlist" class="hidden sm:block text-sm text-gray-400 hover:text-white transition-colors">
-            Early Access
+            <span class="text-xl font-bold tracking-tight">Kefu <span class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">VIRTUAL INC.</span></span>
         </a>
+
+        <!-- Links & CTA -->
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex items-center gap-6">
+                <a href="pricing.html" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
+                <a href="terms.html" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+            </div>
+            <a href="#waitlist" class="text-sm bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-lg transition-colors text-gray-300">
+                Employee Login
+            </a>
+        </div>
     </nav>
 
-    <!-- Hero Section (首屏) - 運用損失厭惡 -->
+    <!-- Hero Section (首屏) - 虛擬公司概念 -->
     <header class="relative z-10 pt-16 pb-24 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium mb-8 animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8 animate-fade-in-up">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
             </span>
-            警告：你的時間正在被竊取
+            虛擬總部系統上線中
         </div>
         
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
-            別讓「回覆訊息」<br>
-            <span class="text-white glow-text-danger">偷走你每小時 $3,000 的開發產值</span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
+            一人開發，<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 glow-text">像百人企業一樣營運</span>
         </h1>
         
         <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            手動回覆客服看似免費，其實是你最昂貴的隱形支出。<br>
-            每一分鐘的延遲，你都在流失一個因為失去耐心而離開的付費客戶。
+            Kefu 為你一鍵生成「虛擬營運公司」。<br>
+            不用面試、不用勞健保，立刻擁有一支全天候待命的 AI 菁英團隊，<br>你只需專注於 CEO 的決策與產品開發。
         </p>
 
         <!-- Waitlist Form (Hero) -->
         <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form">
-            <input type="email" placeholder="輸入 Gmail 立即止損" required
+            <input type="email" placeholder="輸入 Gmail 建立你的公司" required
                    class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
             <button type="submit" class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                <span>搶救我的時間</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <span>立即招聘 AI 團隊</span>
+                <i data-lucide="briefcase" class="w-4 h-4"></i>
             </button>
         </form>
-        <p class="mt-4 text-xs text-red-400 flex justify-center items-center gap-1">
-            <i data-lucide="flame" class="w-3 h-3"></i> 本月 Early Access 僅剩最後 12 席，錯過再等三個月。
+        <p class="mt-4 text-xs text-gray-500 flex justify-center items-center gap-1">
+            <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i> 目前已有 500+ 間虛擬公司成立運作中
         </p>
     </header>
 
-    <!-- Pain Points (痛點) - 運用痛苦心理學 -->
+    <!-- Pain Points (痛點) - 融合了損失厭惡的文案，但保持科技風格 -->
     <section class="relative z-10 py-20 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">如果不改變，這是你必須付出的代價</h2>
-                <p class="text-gray-400">流量紅利轉瞬即逝，你的猶豫正在讓對手有機可乘。</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">一人公司不代表要「一個人做死」</h2>
+                <p class="text-gray-400">當流量紅利來襲，單打獨鬥只會讓你陷入<span class="text-red-400 font-bold">隱形虧損</span>。</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
+                <!-- Card 1: 強調時間價值 (損失厭惡) -->
                 <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="hourglass-off" class="text-red-400 w-6 h-6"></i>
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="hourglass-off" class="text-indigo-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">隱形的時間負債</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        你每天花 1 小時回覆重複問題，一年就浪費了 365 小時。這些時間本可以用來開發新功能或陪伴家人，現在卻被永遠偷走了。
+                        你每天花 1 小時回覆重複問題，一年就浪費了 365 小時。這些本該用來開發新功能的時間，正被無意義的瑣事偷走。
                     </p>
                 </div>
                 
-                <!-- Card 2 -->
+                <!-- Card 2: 強調機會流失 (損失厭惡) -->
                 <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="user-x" class="text-orange-400 w-6 h-6"></i>
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="user-x" class="text-indigo-400 w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">沈默流失最可怕</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">沉默流失最可怕</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        90% 的訪客不會告訴你問題，他們遇到困難沒人理就會直接刪除 App。沒有秒回機制，你甚至不知道自己損失了多少錢。
+                        90% 的訪客遇到問題不會告訴你，他們只會直接刪除 App。沒有 24 小時輪班的 AI 員工，你甚至不知道自己損失了多少錢。
                     </p>
                 </div>
                 
-                <!-- Card 3 -->
+                <!-- Card 3: 強調競爭 (規模化瓶頸) -->
                 <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="alert-triangle" class="text-yellow-400 w-6 h-6"></i>
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="text-indigo-400 w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">對手正在收割你的用戶</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">對手正在用 AI 超越你</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        一人的極限是體力，但你的競爭對手可能已經用上了 AI。當你在睡覺時，你的潛在用戶正在流向那些「秒回」的競品。
+                        一人公司的優勢是靈活，但若因雜事被綁住，就失去了籌碼。當你在睡覺時，對手的 AI 團隊正在收割你的潛在用戶。
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Solution (Agentic Workflow) -->
+    <!-- Core Solution (Virtual Org Chart) -->
     <section class="relative z-10 py-24 bg-black/20 border-y border-brand-border/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 
                 <!-- Left: Text -->
                 <div>
-                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Core Architecture</div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">終止混亂的唯一解法：<br><span class="text-indigo-400">Agentic Workflow</span></h2>
-                    <p class="text-gray-400 mb-8 text-lg">
-                        不要讓營運瑣事成為你擴張的瓶頸。部署這套「多智能體協作系統」，讓它成為你的防火牆，攔截 90% 的干擾。
+                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Your AI Team Roster</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">介紹你的新同事：<br><span class="text-indigo-400">全自動化虛擬團隊</span></h2>
+                    
+                    <p class="text-gray-400 mb-6 text-lg">
+                        這不是聊天機器人，這是你專屬的組織架構。Kefu 運用 Agentic Workflow 技術，讓每位 AI 員工各司其職。
                     </p>
+
+                    <!-- Speed Setup Note -->
+                    <div class="inline-flex items-center gap-2 bg-green-900/20 border border-green-500/30 rounded-lg px-4 py-2 mb-8 animate-pulse-slow">
+                        <i data-lucide="timer" class="w-4 h-4 text-green-400"></i>
+                        <span class="text-green-400 text-sm font-bold">極速部署：</span>
+                        <span class="text-gray-300 text-sm">只需 5 分鐘，即可完成團隊組建與職務分配。</span>
+                    </div>
                     
                     <ul class="space-y-6">
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                <span class="text-xs text-indigo-400 font-bold">1</span>
+                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                                <span class="text-xs text-indigo-400 font-bold">COO</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">營運總管 (Root Agent)</h4>
-                                <p class="text-gray-500 text-sm mt-1">你的決策防火牆。它負責分流任務，確保只有真正重要的 Bug 回報才會打擾你。</p>
+                                <h4 class="text-white font-bold text-lg">營運總監 (Root Agent)</h4>
+                                <p class="text-gray-500 text-sm mt-1">你的決策大腦。負責拆解用戶意圖，指派任務給下屬，只在必要時向你匯報 Bug。</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                <span class="text-xs text-indigo-400 font-bold">2</span>
+                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                                <span class="text-xs text-indigo-400 font-bold">CSO</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">知識專家 (FAQ Agent)</h4>
-                                <p class="text-gray-500 text-sm mt-1">不知疲倦的客服。當你在睡覺時，它正根據你的文件，挽救那些差點流失的用戶。</p>
+                                <h4 class="text-white font-bold text-lg">金牌客服 (FAQ Agent)</h4>
+                                <p class="text-gray-500 text-sm mt-1">熟讀你所有的產品手冊與 API 文件。24/7 秒回用戶疑問，服務態度永遠 100 分。</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                <span class="text-xs text-indigo-400 font-bold">3</span>
+                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                                <span class="text-xs text-indigo-400 font-bold">CMO</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">數據與行銷專員</h4>
-                                <p class="text-gray-500 text-sm mt-1">流量守門員。自動標記潛力用戶，不讓任何一個付費機會從指縫中溜走。</p>
+                                <h4 class="text-white font-bold text-lg">行銷總監 (Marketing Agent)</h4>
+                                <p class="text-gray-500 text-sm mt-1">流量變現專家。自動分析用戶行為，貼上「潛在 VIP」標籤，並主動推播優惠。</p>
                             </div>
                         </li>
                     </ul>
-                </div>
 
-                <!-- Right: Visual (CSS Graphics) -->
-                <div class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20">
-                    <!-- Decor: Mac Buttons -->
-                    <div class="flex gap-2 mb-6">
-                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    </div>
-                    
-                    <!-- Diagram -->
-                    <div class="relative flex flex-col items-center justify-center h-[400px]">
-                        <!-- Root Agent -->
-                        <div class="relative z-20 w-32 h-32 bg-indigo-600/20 border border-indigo-500 rounded-full flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow">
-                            <i data-lucide="cpu" class="text-indigo-300 w-8 h-8 mb-2"></i>
-                            <span class="text-xs font-bold text-indigo-200">Root Agent</span>
-                        </div>
-                        
-                        <!-- Connecting Lines -->
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-0">
-                            <svg class="w-full h-full visible" style="overflow: visible;">
-                                <line x1="50%" y1="50%" x2="20%" y2="80%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
-                                <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
-                                <line x1="50%" y1="50%" x2="80%" y2="80%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
-                            </svg>
-                        </div>
-
-                        <!-- Sub Agents -->
-                        <div class="absolute bottom-10 w-full flex justify-between px-4">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
-                                    <i data-lucide="book-open" class="text-green-400 w-6 h-6"></i>
-                                </div>
-                                <span class="text-[10px] text-gray-500 uppercase tracking-wide">FAQ / RAG</span>
-                            </div>
-                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
-                                    <i data-lucide="bar-chart-2" class="text-blue-400 w-6 h-6"></i>
-                                </div>
-                                <span class="text-[10px] text-gray-500 uppercase tracking-wide">Marketing</span>
-                            </div>
-                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
-                                    <i data-lucide="shield-check" class="text-purple-400 w-6 h-6"></i>
-                                </div>
-                                <span class="text-[10px] text-gray-500 uppercase tracking-wide">QA Guard</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Section - 避免損失的角度 -->
-    <section class="relative z-10 py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-             <div class="text-center mb-16">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">別再浪費你的天賦</h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                    <div class="w-10 h-10 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="zap" class="text-indigo-400 w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">再不行動，下個月多花 60 小時</h3>
-                    <p class="text-sm text-gray-400">只需 5 分鐘填寫問卷，就能避免未來一個月陷入重複回覆的泥沼。</p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                    <div class="w-10 h-10 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="code-2" class="text-purple-400 w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">避免「機器人感」的公關災難</h3>
-                    <p class="text-sm text-gray-400">支援 MCP 工具箱。Kefu 能真正解決問題（查訂單、退款），而不是只會道歉。</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                    <div class="w-10 h-10 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="award" class="text-blue-400 w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">專業感決定溢價空間</h3>
-                    <p class="text-sm text-gray-400">你的產品很棒，但如果客服很爛，客戶就會覺得產品很廉價。別讓服務拖累你的定價。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison / Value - 花費心理學 -->
-    <section class="relative z-10 py-16 px-6">
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
-            <h3 class="text-2xl font-bold text-white mb-8">算一筆帳：你正在虧損多少錢？</h3>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-8 text-left">
-                <div class="flex-1 bg-red-900/20 p-6 rounded-xl border border-red-900/30">
-                    <div class="text-red-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
-                        <i data-lucide="trending-down" class="w-4 h-4"></i> 傳統手動回覆
-                    </div>
-                    <div class="text-white text-lg font-medium mb-2">每小時損失 $3,000 產值</div>
-                    <p class="text-gray-400 text-sm">假設你的時薪是 $3,000，每天回一小時客服，一個月你就燒掉了 $90,000 的開發價值。</p>
-                </div>
-                
-                <div class="flex-1 bg-green-900/20 p-6 rounded-xl border border-green-500/30 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">SMART CHOICE</div>
-                    <div class="text-green-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i> Kefu 自動化
-                    </div>
-                    <div class="text-white text-lg font-medium mb-2">止損並創造資產</div>
-                    <p class="text-gray-400 text-sm">只需極低成本，就能贖回你的時間，並將流量轉化為數據資產。這是最划算的避險投資。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Footer - FOMO & Risk Reversal -->
-    <footer id="waitlist" class="relative z-10 pt-20 pb-12 px-6 text-center border-t border-brand-border/50 bg-brand-dark">
-        <div class="max-w-2xl mx-auto">
-            <div class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold mb-6 animate-pulse">
-                🔥 最後倒數：Early Access 僅剩 12 名
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">別讓你的爆紅變成一場災難<br>現在卡位，風險為零</h2>
-            <p class="text-gray-400 mb-8">
-                Waitlist 成員將享有「永久早鳥優惠價」。<br>
-                若不滿意，隨時可以取消，你沒有任何損失——除了現在不行動的機會成本。
-            </p>
-            
-            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form mb-8">
-                <input type="email" placeholder="輸入 Gmail 鎖定優惠資格" required
-                       class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 transition-all">
-                <button type="submit" class="bg-white text-brand-dark hover:bg-gray-100 font-bold px-6 py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
-                    立即保留席位
-                </button>
-            </form>
-
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 border-t border-gray-800 pt-8">
-                <div class="flex items-center gap-2 mb-4 md:mb-0">
-                    <i data-lucide="bot" class="w-4 h-4"></i>
-                    <span>© 2026 Kefu. All rights reserved.</span>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-400">Twitter</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Form Handling Logic (Simulation)
-        const forms = document.querySelectorAll('.waitlist-form');
-        
-        forms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                const button = this.querySelector('button');
-                const originalText = button.innerHTML;
-                
-                // Disable form
-                emailInput.disabled = true;
-                button.disabled = true;
-                button.innerHTML = '<i data-lucide="loader-2" class="animate-spin w-5 h-5"></i>';
-                lucide.createIcons();
-
-                // Simulate API call
-                setTimeout(() => {
-                    button.classList.remove('bg-button-gradient', 'bg-white', 'text-brand-dark');
-                    button.classList.add('bg-green-500', 'text-white', 'border-none');
-                    button.innerHTML = '<i data-lucide="check" class="w-5 h-5 mr-2"></i> 已保留席位';
-                    lucide.createIcons();
-                    
-                    // Optional: Show success message/modal
-                    alert(`太棒了！我們已將 ${emailInput.value} 鎖定在優先名單中。請留意收信，別錯過早鳥權益。`);
-                }, 1500);
-            });
-        });
-    </script>
-</body>
-</html>
+                    <!-- New Expansion Note -->
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <div class="flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl
