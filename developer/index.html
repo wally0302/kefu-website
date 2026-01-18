@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kefu - 獨立開發者的虛擬營運公司</title>
     <meta name="description" content="Kefu 讓一人公司擁有千萬級企業的營運深度。不是客服機器人，是你的『開發時間保險』。">
-    
+
     <!-- Google Fonts: Inter (英文) & Noto Sans TC (中文) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS (快速排版與響應式設計) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Lucide Icons (輕量級圖標) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -71,7 +74,7 @@
         .bg-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
 
@@ -79,11 +82,11 @@
         .glow-text {
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
         }
-        
+
         .glow-text-danger {
             text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
         }
-        
+
         /* 輸入框聚焦時的光暈 */
         .input-glow:focus {
             box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
@@ -93,31 +96,40 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #0B0F19; 
+            background: #0B0F19;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #374151; 
+            background: #374151;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #4B5563; 
+            background: #4B5563;
         }
     </style>
 </head>
+
 <body class="relative overflow-x-hidden">
 
     <!-- 背景裝飾 -->
     <div class="fixed inset-0 pointer-events-none z-0">
         <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
-        <div class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] mix-blend-screen"></div>
-        <div class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] mix-blend-screen"></div>
+        <div
+            class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] mix-blend-screen">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] mix-blend-screen">
+        </div>
     </div>
 
     <!-- 導航欄 -->
     <nav class="relative z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div
+                class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <i data-lucide="bot" class="text-white w-5 h-5"></i>
             </div>
             <span class="text-xl font-bold tracking-tight">Kefu</span>
@@ -130,19 +142,21 @@
 
     <!-- Hero Section (首屏) - 運用損失厭惡 -->
     <header class="relative z-10 pt-16 pb-24 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium mb-8 animate-fade-in-up">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium mb-8 animate-fade-in-up">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
             警告：你的時間正在被竊取
         </div>
-        
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
+
+        <h1
+            class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
             別讓「回覆訊息」<br>
             <span class="text-white glow-text-danger">偷走你每小時 $3,000 的開發產值</span>
         </h1>
-        
+
         <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             手動回覆客服看似免費，其實是你最昂貴的隱形支出。<br>
             每一分鐘的延遲，你都在流失一個因為失去耐心而離開的付費客戶。
@@ -151,8 +165,9 @@
         <!-- Waitlist Form (Hero) -->
         <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form">
             <input type="email" placeholder="輸入 Gmail 立即止損" required
-                   class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
-            <button type="submit" class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
+            <button type="submit"
+                class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
                 <span>搶救我的時間</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
@@ -169,11 +184,13 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">如果不改變，這是你必須付出的代價</h2>
                 <p class="text-gray-400">流量紅利轉瞬即逝，你的猶豫正在讓對手有機可乘。</p>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="hourglass-off" class="text-red-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">隱形的時間負債</h3>
@@ -181,10 +198,12 @@
                         你每天花 1 小時回覆重複問題，一年就浪費了 365 小時。這些時間本可以用來開發新功能或陪伴家人，現在卻被永遠偷走了。
                     </p>
                 </div>
-                
+
                 <!-- Card 2 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="user-x" class="text-orange-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">沈默流失最可怕</h3>
@@ -192,10 +211,12 @@
                         90% 的訪客不會告訴你問題，他們遇到困難沒人理就會直接刪除 App。沒有秒回機制，你甚至不知道自己損失了多少錢。
                     </p>
                 </div>
-                
+
                 <!-- Card 3 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
-                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="alert-triangle" class="text-yellow-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">對手正在收割你的用戶</h3>
@@ -211,18 +232,21 @@
     <section class="relative z-10 py-24 bg-black/20 border-y border-brand-border/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
+
                 <!-- Left: Text -->
                 <div>
-                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Core Architecture</div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">終止混亂的唯一解法：<br><span class="text-indigo-400">Agentic Workflow</span></h2>
+                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Core
+                        Architecture</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">終止混亂的唯一解法：<br><span class="text-indigo-400">Agentic
+                            Workflow</span></h2>
                     <p class="text-gray-400 mb-8 text-lg">
                         不要讓營運瑣事成為你擴張的瓶頸。部署這套「多智能體協作系統」，讓它成為你的防火牆，攔截 90% 的干擾。
                     </p>
-                    
+
                     <ul class="space-y-6">
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">1</span>
                             </div>
                             <div>
@@ -231,7 +255,8 @@
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">2</span>
                             </div>
                             <div>
@@ -240,7 +265,8 @@
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">3</span>
                             </div>
                             <div>
@@ -252,47 +278,55 @@
                 </div>
 
                 <!-- Right: Visual (CSS Graphics) -->
-                <div class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20">
+                <div
+                    class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20">
                     <!-- Decor: Mac Buttons -->
                     <div class="flex gap-2 mb-6">
                         <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
                     </div>
-                    
+
                     <!-- Diagram -->
                     <div class="relative flex flex-col items-center justify-center h-[400px]">
                         <!-- Root Agent -->
-                        <div class="relative z-20 w-32 h-32 bg-indigo-600/20 border border-indigo-500 rounded-full flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow">
+                        <div
+                            class="relative z-20 w-32 h-32 bg-indigo-600/20 border border-indigo-500 rounded-full flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow">
                             <i data-lucide="cpu" class="text-indigo-300 w-8 h-8 mb-2"></i>
                             <span class="text-xs font-bold text-indigo-200">Root Agent</span>
                         </div>
-                        
+
                         <!-- Connecting Lines -->
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-0">
                             <svg class="w-full h-full visible" style="overflow: visible;">
-                                <line x1="50%" y1="50%" x2="20%" y2="80%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
-                                <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
-                                <line x1="50%" y1="50%" x2="80%" y2="80%" stroke="#4F46E5" stroke-width="1" stroke-dasharray="4 4" class="opacity-50" />
+                                <line x1="50%" y1="50%" x2="20%" y2="80%" stroke="#4F46E5" stroke-width="1"
+                                    stroke-dasharray="4 4" class="opacity-50" />
+                                <line x1="50%" y1="50%" x2="50%" y2="85%" stroke="#4F46E5" stroke-width="1"
+                                    stroke-dasharray="4 4" class="opacity-50" />
+                                <line x1="50%" y1="50%" x2="80%" y2="80%" stroke="#4F46E5" stroke-width="1"
+                                    stroke-dasharray="4 4" class="opacity-50" />
                             </svg>
                         </div>
 
                         <!-- Sub Agents -->
                         <div class="absolute bottom-10 w-full flex justify-between px-4">
                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
+                                <div
+                                    class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
                                     <i data-lucide="book-open" class="text-green-400 w-6 h-6"></i>
                                 </div>
                                 <span class="text-[10px] text-gray-500 uppercase tracking-wide">FAQ / RAG</span>
                             </div>
-                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
+                            <div class="flex flex-col items-center gap-2">
+                                <div
+                                    class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
                                     <i data-lucide="bar-chart-2" class="text-blue-400 w-6 h-6"></i>
                                 </div>
                                 <span class="text-[10px] text-gray-500 uppercase tracking-wide">Marketing</span>
                             </div>
-                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
+                            <div class="flex flex-col items-center gap-2">
+                                <div
+                                    class="w-16 h-16 bg-brand-dark border border-gray-700 rounded-xl flex items-center justify-center shadow-lg">
                                     <i data-lucide="shield-check" class="text-purple-400 w-6 h-6"></i>
                                 </div>
                                 <span class="text-[10px] text-gray-500 uppercase tracking-wide">QA Guard</span>
@@ -308,22 +342,24 @@
     <!-- Why Choose Section - 避免損失的角度 -->
     <section class="relative z-10 py-20 px-6">
         <div class="max-w-6xl mx-auto">
-             <div class="text-center mb-16">
+            <div class="text-center mb-16">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">別再浪費你的天賦</h2>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Feature 1 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="zap" class="text-indigo-400 w-5 h-5"></i>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">再不行動，下個月多花 60 小時</h3>
                     <p class="text-sm text-gray-400">只需 5 分鐘填寫問卷，就能避免未來一個月陷入重複回覆的泥沼。</p>
                 </div>
-                
+
                 <!-- Feature 2 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="code-2" class="text-purple-400 w-5 h-5"></i>
                     </div>
@@ -332,7 +368,8 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="award" class="text-blue-400 w-5 h-5"></i>
                     </div>
@@ -345,9 +382,10 @@
 
     <!-- Comparison / Value - 花費心理學 -->
     <section class="relative z-10 py-16 px-6">
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
+        <div
+            class="max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
             <h3 class="text-2xl font-bold text-white mb-8">算一筆帳：你正在虧損多少錢？</h3>
-            
+
             <div class="flex flex-col md:flex-row justify-center gap-8 text-left">
                 <div class="flex-1 bg-red-900/20 p-6 rounded-xl border border-red-900/30">
                     <div class="text-red-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
@@ -356,9 +394,11 @@
                     <div class="text-white text-lg font-medium mb-2">每小時損失 $3,000 產值</div>
                     <p class="text-gray-400 text-sm">假設你的時薪是 $3,000，每天回一小時客服，一個月你就燒掉了 $90,000 的開發價值。</p>
                 </div>
-                
+
                 <div class="flex-1 bg-green-900/20 p-6 rounded-xl border border-green-500/30 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">SMART CHOICE</div>
+                    <div
+                        class="absolute top-0 right-0 bg-green-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">
+                        SMART CHOICE</div>
                     <div class="text-green-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
                         <i data-lucide="shield-check" class="w-4 h-4"></i> Kefu 自動化
                     </div>
@@ -370,9 +410,11 @@
     </section>
 
     <!-- Final CTA Footer - FOMO & Risk Reversal -->
-    <footer id="waitlist" class="relative z-10 pt-20 pb-12 px-6 text-center border-t border-brand-border/50 bg-brand-dark">
+    <footer id="waitlist"
+        class="relative z-10 pt-20 pb-12 px-6 text-center border-t border-brand-border/50 bg-brand-dark">
         <div class="max-w-2xl mx-auto">
-            <div class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold mb-6 animate-pulse">
+            <div
+                class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold mb-6 animate-pulse">
                 🔥 最後倒數：Early Access 僅剩 12 名
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">別讓你的爆紅變成一場災難<br>現在卡位，風險為零</h2>
@@ -380,16 +422,18 @@
                 Waitlist 成員將享有「永久早鳥優惠價」。<br>
                 若不滿意，隨時可以取消，你沒有任何損失——除了現在不行動的機會成本。
             </p>
-            
+
             <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form mb-8">
                 <input type="email" placeholder="輸入 Gmail 鎖定優惠資格" required
-                       class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 transition-all">
-                <button type="submit" class="bg-white text-brand-dark hover:bg-gray-100 font-bold px-6 py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                    class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 transition-all">
+                <button type="submit"
+                    class="bg-white text-brand-dark hover:bg-gray-100 font-bold px-6 py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
                     立即保留席位
                 </button>
             </form>
 
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 border-t border-gray-800 pt-8">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 border-t border-gray-800 pt-8">
                 <div class="flex items-center gap-2 mb-4 md:mb-0">
                     <i data-lucide="bot" class="w-4 h-4"></i>
                     <span>© 2026 Kefu. All rights reserved.</span>
@@ -409,14 +453,14 @@
 
         // Form Handling Logic (Simulation)
         const forms = document.querySelectorAll('.waitlist-form');
-        
+
         forms.forEach(form => {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const emailInput = this.querySelector('input[type="email"]');
                 const button = this.querySelector('button');
                 const originalText = button.innerHTML;
-                
+
                 // Disable form
                 emailInput.disabled = true;
                 button.disabled = true;
@@ -429,7 +473,7 @@
                     button.classList.add('bg-green-500', 'text-white', 'border-none');
                     button.innerHTML = '<i data-lucide="check" class="w-5 h-5 mr-2"></i> 已保留席位';
                     lucide.createIcons();
-                    
+
                     // Optional: Show success message/modal
                     alert(`太棒了！我們已將 ${emailInput.value} 鎖定在優先名單中。請留意收信，別錯過早鳥權益。`);
                 }, 1500);
@@ -437,4 +481,5 @@
         });
     </script>
 </body>
+
 </html>
