@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kefu - 獨立開發者的虛擬營運公司</title>
     <meta name="description" content="Kefu 讓一人公司擁有千萬級企業的營運深度。不是客服機器人，是你的『開發時間保險』。">
-    
+
     <!-- Google Fonts: Inter (英文) & Noto Sans TC (中文) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS (快速排版與響應式設計) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Lucide Icons (輕量級圖標) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -69,7 +72,7 @@
         .bg-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
 
@@ -77,48 +80,58 @@
         .glow-text {
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
         }
-        
+
         /* 輸入框聚焦時的光暈 */
         .input-glow:focus {
             box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
         }
 
         /* FAQ 動畫優化 */
-        details > summary {
+        details>summary {
             list-style: none;
         }
-        details > summary::-webkit-details-marker {
+
+        details>summary::-webkit-details-marker {
             display: none;
         }
     </style>
 </head>
+
 <body class="relative overflow-x-hidden">
 
     <!-- 背景裝飾 -->
     <div class="fixed inset-0 pointer-events-none z-0">
         <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
-        <div class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] mix-blend-screen"></div>
-        <div class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] mix-blend-screen"></div>
+        <div
+            class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] mix-blend-screen">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] mix-blend-screen">
+        </div>
     </div>
 
     <!-- 導航欄 -->
     <nav class="relative z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <div
+                class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <!-- 第一個 Icon：改回 bot 以確保顯示穩定 -->
                 <i data-lucide="bot" class="text-white w-5 h-5"></i>
             </div>
-            <span class="text-xl font-bold tracking-tight">Kefu <span class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">VIRTUAL INC.</span></span>
+            <span class="text-xl font-bold tracking-tight">Kefu <span
+                    class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">VIRTUAL
+                    INC.</span></span>
         </a>
 
         <!-- Links & CTA -->
         <div class="flex items-center gap-6">
             <div class="hidden md:flex items-center gap-6">
-                <a href="https://wally0302.github.io/kefu-website/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
-                <a href="https://wally0302.github.io/kefu-website/terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+                <a href="pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
+                <a href="terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
             </div>
-            <a href="#waitlist" class="text-sm bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-lg transition-colors text-gray-300">
+            <a href="#waitlist"
+                class="text-sm bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-lg transition-colors text-gray-300">
                 Employee Login
             </a>
         </div>
@@ -126,19 +139,22 @@
 
     <!-- Hero Section (首屏) - 虛擬公司概念 -->
     <header class="relative z-10 pt-16 pb-24 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8 animate-fade-in-up">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8 animate-fade-in-up">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
             </span>
             虛擬總部系統上線中
         </div>
-        
+
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
             一人開發，<br>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 glow-text">像百人企業一樣營運</span>
+            <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 glow-text">像百人企業一樣營運</span>
         </h1>
-        
+
         <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Kefu 為你一鍵生成「虛擬營運公司」。<br>
             不用面試、不用勞健保，立刻擁有一支全天候待命的 AI 菁英團隊，<br>你只需專注於 CEO 的決策與產品開發。
@@ -147,8 +163,9 @@
         <!-- Waitlist Form (Hero) -->
         <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form">
             <input type="email" placeholder="輸入 Gmail 建立你的公司" required
-                   class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
-            <button type="submit" class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
+            <button type="submit"
+                class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
                 <span>立即招聘 AI 團隊</span>
                 <i data-lucide="briefcase" class="w-4 h-4"></i>
             </button>
@@ -165,10 +182,11 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">一人公司不代表要「一個人做死」</h2>
                 <p class="text-gray-400">當流量紅利來襲，單打獨鬥只會讓你陷入<span class="text-red-400 font-bold">隱形虧損</span>。</p>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="hourglass" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -177,9 +195,10 @@
                         你每天花 1 小時回覆重複問題，一年就浪費了 365 小時。這些本該用來開發新功能的時間，正被無意義的瑣事偷走。
                     </p>
                 </div>
-                
+
                 <!-- Card 2 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="user-x" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -188,9 +207,10 @@
                         90% 的訪客遇到問題不會告訴你，他們只會直接刪除 App。沒有 24 小時輪班的 AI 員工，你甚至不知道自己損失了多少錢。
                     </p>
                 </div>
-                
+
                 <!-- Card 3 -->
-                <div class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                <div
+                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="trending-up" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -207,26 +227,30 @@
     <section class="relative z-10 py-24 bg-black/20 border-y border-brand-border/50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
+
                 <!-- Left: Text -->
                 <div>
-                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Your AI Team Roster</div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">介紹你的新同事：<br><span class="text-indigo-400">全自動化虛擬團隊</span></h2>
-                    
+                    <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Your
+                        AI Team Roster</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">介紹你的新同事：<br><span
+                            class="text-indigo-400">全自動化虛擬團隊</span></h2>
+
                     <p class="text-gray-400 mb-6 text-lg">
                         這不是聊天機器人，這是你專屬的組織架構。Kefu 運用 Agentic Workflow 技術，讓每位 AI 員工各司其職。
                     </p>
 
                     <!-- Speed Setup Note -->
-                    <div class="inline-flex items-center gap-2 bg-green-900/20 border border-green-500/30 rounded-lg px-4 py-2 mb-8 animate-pulse-slow">
+                    <div
+                        class="inline-flex items-center gap-2 bg-green-900/20 border border-green-500/30 rounded-lg px-4 py-2 mb-8 animate-pulse-slow">
                         <i data-lucide="timer" class="w-4 h-4 text-green-400"></i>
                         <span class="text-green-400 text-sm font-bold">極速部署：</span>
                         <span class="text-gray-300 text-sm">只需 5 分鐘，即可完成團隊組建與職務分配。</span>
                     </div>
-                    
+
                     <ul class="space-y-6">
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">COO</span>
                             </div>
                             <div>
@@ -235,7 +259,8 @@
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">CSO</span>
                             </div>
                             <div>
@@ -244,7 +269,8 @@
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <div class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
+                            <div
+                                class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
                                 <span class="text-xs text-indigo-400 font-bold">CMO</span>
                             </div>
                             <div>
@@ -256,8 +282,10 @@
 
                     <!-- New Expansion Note -->
                     <div class="mt-8 pt-6 border-t border-gray-800">
-                        <div class="flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl border border-dashed border-gray-700">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600">
+                        <div
+                            class="flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl border border-dashed border-gray-700">
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600">
                                 <i data-lucide="plus" class="w-4 h-4 text-indigo-400"></i>
                             </div>
                             <p>
@@ -270,7 +298,8 @@
                 </div>
 
                 <!-- Right: Visual (Org Chart Style) -->
-                <div class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20">
+                <div
+                    class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20">
                     <!-- Decor: Window Header -->
                     <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
                         <div class="text-xs text-gray-500">Kefu_Virtual_Org_Chart.pdf</div>
@@ -280,23 +309,25 @@
                             <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
                         </div>
                     </div>
-                    
+
                     <!-- Diagram -->
                     <div class="relative flex flex-col items-center justify-center h-[400px]">
                         <!-- YOU (CEO) -->
-                        <div class="absolute top-0 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center">
+                        <div
+                            class="absolute top-0 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center">
                             <span class="text-xs text-gray-500">YOU (CEO)</span>
                         </div>
                         <div class="absolute top-12 h-8 w-px bg-gray-600"></div>
 
                         <!-- Root Agent (COO) -->
-                        <div class="relative z-20 w-40 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow mt-8">
+                        <div
+                            class="relative z-20 w-40 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow mt-8">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="cpu" class="text-indigo-300 w-4 h-4"></i>
                                 <span class="text-sm font-bold text-indigo-200">AI 營運總監</span>
                             </div>
                         </div>
-                        
+
                         <!-- Connecting Lines -->
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-4 w-full h-full z-0">
                             <svg class="w-full h-full visible" style="overflow: visible;">
@@ -314,7 +345,8 @@
                         <!-- Sub Agents Cards -->
                         <div class="absolute bottom-12 w-full flex justify-between px-2 gap-2">
                             <!-- Card 1 -->
-                            <div class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-green-500 transition-colors">
+                            <div
+                                class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-green-500 transition-colors">
                                 <div class="w-8 h-8 rounded-full bg-green-900/30 flex items-center justify-center">
                                     <i data-lucide="message-circle" class="text-green-400 w-4 h-4"></i>
                                 </div>
@@ -323,8 +355,9 @@
                                     <div class="text-[10px] text-gray-500">FAQ Agent</div>
                                 </div>
                             </div>
-                             <!-- Card 2 -->
-                            <div class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-blue-500 transition-colors">
+                            <!-- Card 2 -->
+                            <div
+                                class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-blue-500 transition-colors">
                                 <div class="w-8 h-8 rounded-full bg-blue-900/30 flex items-center justify-center">
                                     <i data-lucide="bar-chart-2" class="text-blue-400 w-4 h-4"></i>
                                 </div>
@@ -333,8 +366,9 @@
                                     <div class="text-[10px] text-gray-500">Growth Agent</div>
                                 </div>
                             </div>
-                             <!-- Card 3 -->
-                            <div class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-purple-500 transition-colors">
+                            <!-- Card 3 -->
+                            <div
+                                class="flex-1 bg-brand-dark border border-gray-700 rounded-lg p-3 shadow-lg flex flex-col items-center gap-2 hover:border-purple-500 transition-colors">
                                 <div class="w-8 h-8 rounded-full bg-purple-900/30 flex items-center justify-center">
                                     <i data-lucide="shield-check" class="text-purple-400 w-4 h-4"></i>
                                 </div>
@@ -354,23 +388,25 @@
     <!-- Why Choose Section -->
     <section class="relative z-10 py-20 px-6">
         <div class="max-w-6xl mx-auto">
-             <div class="text-center mb-16">
+            <div class="text-center mb-16">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">為什麼你該選擇「虛擬員工」？</h2>
                 <p class="text-gray-400">比起傳統招聘，Kefu 提供絕對的經營優勢。</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Feature 1 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="zap" class="text-indigo-400 w-5 h-5"></i>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">5 分鐘完成入職 (Onboarding)</h3>
                     <p class="text-sm text-gray-400">無需數月的面試與訓練。透過「智能建置顧問」，填寫問卷，你的團隊即刻上工。</p>
                 </div>
-                
+
                 <!-- Feature 2 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="coffee" class="text-purple-400 w-5 h-5"></i>
                     </div>
@@ -379,7 +415,8 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
+                <div
+                    class="p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
                     <div class="w-10 h-10 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="briefcase" class="text-blue-400 w-5 h-5"></i>
                     </div>
@@ -392,9 +429,10 @@
 
     <!-- Comparison / Value -->
     <section class="relative z-10 py-16 px-6">
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
+        <div
+            class="max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
             <h3 class="text-2xl font-bold text-white mb-8">算一筆帳：你正在虧損多少錢？</h3>
-            
+
             <div class="flex flex-col md:flex-row justify-center gap-8 text-left">
                 <!-- 左邊：損失強調 -->
                 <div class="flex-1 bg-red-900/20 p-6 rounded-xl border border-red-900/30 opacity-70">
@@ -408,10 +446,13 @@
                         <li>需負擔勞健保與情緒成本</li>
                     </ul>
                 </div>
-                
+
                 <!-- 右邊：價值強調 -->
-                <div class="flex-1 bg-indigo-900/20 p-6 rounded-xl border border-indigo-500/50 relative overflow-hidden shadow-lg shadow-indigo-500/10">
-                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">BEST VALUE</div>
+                <div
+                    class="flex-1 bg-indigo-900/20 p-6 rounded-xl border border-indigo-500/50 relative overflow-hidden shadow-lg shadow-indigo-500/10">
+                    <div
+                        class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">
+                        BEST VALUE</div>
                     <div class="text-indigo-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
                         <i data-lucide="bot" class="w-4 h-4"></i> Kefu 虛擬團隊
                     </div>
@@ -434,36 +475,45 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-4 text-white">常見問題 (FAQ)</h2>
                 <p class="text-gray-400">關於虛擬公司的運作，CEO 們最想知道的事</p>
             </div>
-            
+
             <!-- Questions -->
             <div class="space-y-4">
-                
+
                 <!-- Q1 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>虛擬員工真的能取代真人客服嗎？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
-                        Kefu 能為您處理 <strong>90% 的重複性問題</strong>（如訂單查詢、規格說明、退款流程）。對於極少數需要複雜情感判斷的個案，營運總監 (Root Agent) 會自動標記並轉交給您處理，讓您只需花費原本 10% 的時間專注於決策。
+                        Kefu 能為您處理 <strong>90% 的重複性問題</strong>（如訂單查詢、規格說明、退款流程）。對於極少數需要複雜情感判斷的個案，營運總監 (Root Agent)
+                        會自動標記並轉交給您處理，讓您只需花費原本 10% 的時間專注於決策。
                     </p>
                 </details>
 
                 <!-- Q2 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>設定很麻煩嗎？需要寫程式嗎？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
                         <strong>完全不需要。</strong> 您只要依照引導填寫品牌介紹與基本 FAQ，Kefu 就能立即開始運作。大多數商家都能在喝完一杯咖啡的時間內完成虛擬團隊的建置。
@@ -471,15 +521,19 @@
                 </details>
 
                 <!-- Q3 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>如果我什麼都還沒準備好，也可以用嗎？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
                         <strong>沒問題。</strong> 即使您只提供一句簡單的品牌介紹，Kefu 的生成式 AI 也能先為您產生一組基礎 FAQ 架構。您可以先讓團隊上線，之後再隨時補充或調整策略。
@@ -487,47 +541,59 @@
                 </details>
 
                 <!-- Q4 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>目前支援串接到哪些平台？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
                         目前原生支援 <strong>LINE 官方帳號</strong>，這是台灣市場滲透率最高的渠道。我們後續將陸續開放 Instagram 與 Facebook Messenger 的整合功能。
                     </p>
                 </details>
-                
+
                 <!-- Q5 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>我的客戶資料安全嗎？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
-                         絕對安全。Kefu 嚴格遵守資料隱私規範，您的資料<strong>僅用於訓練您專屬的虛擬員工</strong>，絕不會分享給其他商家或第三方。您擁有資料的完整控制權，可隨時在後台管理或刪除。
+                        絕對安全。Kefu 嚴格遵守資料隱私規範，您的資料<strong>僅用於訓練您專屬的虛擬員工</strong>，絕不會分享給其他商家或第三方。您擁有資料的完整控制權，可隨時在後台管理或刪除。
                     </p>
                 </details>
 
                 <!-- Q6 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>Kefu 有免費方案嗎？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
                         有的。目前 Kefu 提供<strong>基礎功能體驗</strong>，讓您可以建立 FAQ 並測試 AI 的回覆效果。我們希望您親自見證效率提升後，再決定是否擴大規模。
@@ -535,15 +601,19 @@
                 </details>
 
                 <!-- Q7 -->
-                <details class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
-                    <summary class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
+                <details
+                    class="group bg-brand-card border border-brand-border rounded-xl p-6 open:bg-brand-card/80 transition-all hover:border-indigo-500/30">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer list-none font-bold text-lg text-white">
                         <span class="flex items-center gap-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
                                 <i data-lucide="help-circle" class="text-indigo-400 w-5 h-5"></i>
                             </div>
                             <span>未來會怎麼收費？</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-300"></i>
                     </summary>
                     <p class="mt-4 text-gray-400 leading-relaxed pl-[44px]">
                         未來的收費模式將以<strong>「使用量或功能等級」</strong>為彈性依據。我們的目標是確保小型一人商家也能輕鬆負擔，而大型商家則能依需求靈活擴充算力。
@@ -555,9 +625,11 @@
     </section>
 
     <!-- Final CTA Footer -->
-    <footer id="waitlist" class="relative z-10 pt-20 pb-12 px-6 text-center border-t border-brand-border/50 bg-brand-dark">
+    <footer id="waitlist"
+        class="relative z-10 pt-20 pb-12 px-6 text-center border-t border-brand-border/50 bg-brand-dark">
         <div class="max-w-2xl mx-auto">
-            <div class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold mb-6 animate-pulse">
+            <div
+                class="inline-block px-4 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-bold mb-6 animate-pulse">
                 🔥 虛擬公司註冊倒數：本月僅剩 12 個名額
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">準備好當 CEO 了嗎？<br>即刻部署你的虛擬總部</h2>
@@ -565,23 +637,25 @@
                 前 100 名註冊者，將獲得「終身免月費」的虛擬辦公室權限。<br>
                 今天不開始，明天競爭對手就會用 AI 團隊超越你。
             </p>
-            
+
             <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form mb-8">
                 <input type="email" placeholder="輸入 Gmail 註冊公司" required
-                       class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 transition-all">
-                <button type="submit" class="bg-white text-brand-dark hover:bg-gray-100 font-bold px-6 py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                    class="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 transition-all">
+                <button type="submit"
+                    class="bg-white text-brand-dark hover:bg-gray-100 font-bold px-6 py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
                     成立我的公司
                 </button>
             </form>
 
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 border-t border-gray-800 pt-8">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 border-t border-gray-800 pt-8">
                 <div class="flex items-center gap-2 mb-4 md:mb-0">
                     <i data-lucide="building" class="w-4 h-4"></i>
                     <span>© 2026 Kefu Virtual Inc. All rights reserved.</span>
                 </div>
                 <div class="flex gap-6">
-                    <a href="https://wally0302.github.io/kefu-website/terms/" class="hover:text-gray-400">Terms</a>
-                    <a href="https://wally0302.github.io/kefu-website/pricing/" class="hover:text-gray-400">Pricing</a>
+                    <a href="terms/" class="hover:text-gray-400">Terms</a>
+                    <a href="pricing/" class="hover:text-gray-400">Pricing</a>
                 </div>
             </div>
         </div>
@@ -594,13 +668,13 @@
 
         // Form Handling Logic (Simulation)
         const forms = document.querySelectorAll('.waitlist-form');
-        
+
         forms.forEach(form => {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const emailInput = this.querySelector('input[type="email"]');
                 const button = this.querySelector('button');
-                
+
                 // Disable form
                 emailInput.disabled = true;
                 button.disabled = true;
@@ -613,7 +687,7 @@
                     button.classList.add('bg-green-500', 'text-white', 'border-none');
                     button.innerHTML = '<i data-lucide="check-circle" class="w-5 h-5 mr-2"></i> 虛擬公司成立成功';
                     lucide.createIcons();
-                    
+
                     // Optional: Show success message/modal
                     alert(`恭喜 CEO！您的虛擬總部已建立。我們已將登入憑證寄送至 ${emailInput.value}。`);
                 }, 2000);
@@ -621,4 +695,5 @@
         });
     </script>
 </body>
+
 </html>
