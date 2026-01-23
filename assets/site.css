@@ -95,6 +95,15 @@ details > summary::-webkit-details-marker {
     animation-play-state: paused;
 }
 
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 @keyframes feedback-scroll {
     from {
         transform: translateX(0);
