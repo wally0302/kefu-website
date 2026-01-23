@@ -54,10 +54,56 @@ details > summary::-webkit-details-marker {
     transform: translateY(0);
 }
 
+.feedback-marquee {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.feedback-track {
+    display: flex;
+    width: max-content;
+    animation: feedback-scroll 32s linear infinite;
+}
+
+.feedback-group {
+    display: flex;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    width: max-content;
+}
+
+.feedback-card {
+    width: 260px;
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.45);
+}
+
+.feedback-marquee:hover .feedback-track {
+    animation-play-state: paused;
+}
+
+@keyframes feedback-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .scroll-reveal {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    .feedback-track {
+        animation: none;
+        transform: none;
     }
 }
