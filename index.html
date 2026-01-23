@@ -219,6 +219,31 @@
         </div>
     </section>
 
+    <!-- Org Chart Modal -->
+    <div id="org-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+        <div data-org-modal-overlay class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div
+            class="relative mx-4 w-full max-w-md rounded-2xl border border-brand-border/70 bg-brand-card/95 p-6 shadow-2xl">
+            <button type="button" data-org-modal-close
+                class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/5 p-2 text-gray-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
+                <span class="sr-only">關閉視窗</span>
+                <i data-lucide="x" class="h-4 w-4"></i>
+            </button>
+            <div class="flex items-center gap-3">
+                <div data-org-modal-icon
+                    class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-indigo-200">
+                </div>
+                <div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Kefu Org</p>
+                    <h3 data-org-modal-title class="text-lg font-bold text-white">角色介紹</h3>
+                </div>
+            </div>
+            <p data-org-modal-description class="mt-4 text-sm leading-relaxed text-gray-300">
+                這裡會顯示角色的職責說明。
+            </p>
+        </div>
+    </div>
+
     <!-- Core Solution (Virtual Org Chart) -->
     <section class="relative z-10 py-24 bg-black/20 border-y border-brand-border/50">
         <div class="max-w-7xl mx-auto px-6">
@@ -309,8 +334,8 @@
                     <div class="relative h-full flex flex-col items-center pb-6">
 
                         <!-- Level 1: CEO -->
-                        <div data-org-node="ceo"
-                            class="z-10 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center bg-brand-card shrink-0 -mt-2">
+                        <div data-org-node="ceo" role="button" tabindex="0"
+                            class="z-10 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center bg-brand-card shrink-0 -mt-2 cursor-pointer transition-colors hover:border-indigo-400/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                             <span class="text-xs text-gray-500">YOU (CEO)</span>
                         </div>
 
@@ -319,8 +344,8 @@
                             class="w-px bg-gray-600 flex-1 min-h-[32px] border-l border-dashed border-gray-600 opacity-50"></div>
 
                         <!-- Level 2: COO (Root Agent) -->
-                        <div data-org-node="root"
-                            class="z-10 w-48 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow shadow-lg shadow-indigo-500/20 shrink-0">
+                        <div data-org-node="root" role="button" tabindex="0"
+                            class="z-10 w-48 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow shadow-lg shadow-indigo-500/20 shrink-0 cursor-pointer transition-colors hover:border-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="cpu" class="text-indigo-300 w-5 h-5"></i>
                                 <span class="text-base font-bold text-indigo-200">AI 營運總監</span>
@@ -350,8 +375,8 @@
                         <!-- Level 3: Sub Agents (Grid) -->
                         <div class="w-full grid grid-cols-2 gap-8 px-4 mt-[-4px] shrink-0">
                             <!-- Left: FAQ Agent -->
-                            <div data-org-node="faq"
-                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-10">
+                            <div data-org-node="faq" role="button" tabindex="0"
+                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-10 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400/80">
                                 <div
                                     class="w-10 h-10 rounded-full bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <i data-lucide="message-circle" class="text-green-400 w-5 h-5"></i>
@@ -363,8 +388,8 @@
                             </div>
 
                             <!-- Right: Handover Agent -->
-                            <div data-org-node="handover"
-                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-10">
+                            <div data-org-node="handover" role="button" tabindex="0"
+                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-10 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400/80">
                                 <div
                                     class="w-10 h-10 rounded-full bg-orange-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <i data-lucide="users" class="text-orange-400 w-5 h-5"></i>
@@ -751,6 +776,87 @@
         });
 
         const orgChart = document.querySelector('[data-org-chart]');
+        const orgModal = document.querySelector('#org-modal');
+        const orgModalTitle = document.querySelector('[data-org-modal-title]');
+        const orgModalDescription = document.querySelector('[data-org-modal-description]');
+        const orgModalIcon = document.querySelector('[data-org-modal-icon]');
+        const orgModalOverlay = document.querySelector('[data-org-modal-overlay]');
+        const orgModalClose = document.querySelector('[data-org-modal-close]');
+
+        const orgNodeCopy = {
+            ceo: {
+                title: 'YOU (CEO)',
+                description: '你是虛擬公司的決策者，決定營運方向、目標與資源分配。',
+                icon: 'user',
+            },
+            root: {
+                title: 'AI 營運總監',
+                description: '負責統籌 AI 團隊任務，整合客服策略並確保服務品質與效率。',
+                icon: 'cpu',
+            },
+            faq: {
+                title: '客服部 (FAQ Agent)',
+                description: '處理 90% 的常見問題，提供即時、準確的自助回覆體驗。',
+                icon: 'message-circle',
+            },
+            handover: {
+                title: '人機協作 (Handover Agent)',
+                description: '針對需要判斷或情緒處理的案例，迅速轉接到人工團隊。',
+                icon: 'users',
+            },
+        };
+
+        const openOrgModal = (key) => {
+            if (!orgModal || !orgNodeCopy[key]) return;
+            const { title, description, icon } = orgNodeCopy[key];
+            if (orgModalTitle) orgModalTitle.textContent = title;
+            if (orgModalDescription) orgModalDescription.textContent = description;
+            if (orgModalIcon) {
+                orgModalIcon.innerHTML = `<i data-lucide="${icon}" class="h-5 w-5"></i>`;
+                lucide.createIcons();
+            }
+            orgModal.classList.remove('hidden');
+            orgModal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        const closeOrgModal = () => {
+            if (!orgModal) return;
+            orgModal.classList.add('hidden');
+            orgModal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        if (orgChart && orgModal) {
+            orgChart.addEventListener('click', (event) => {
+                const target = event.target.closest('[data-org-node]');
+                if (!target) return;
+                openOrgModal(target.dataset.orgNode);
+            });
+
+            orgChart.addEventListener('keydown', (event) => {
+                const target = event.target.closest('[data-org-node]');
+                if (!target) return;
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openOrgModal(target.dataset.orgNode);
+                }
+            });
+        }
+
+        if (orgModalOverlay) {
+            orgModalOverlay.addEventListener('click', closeOrgModal);
+        }
+
+        if (orgModalClose) {
+            orgModalClose.addEventListener('click', closeOrgModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeOrgModal();
+            }
+        });
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         if (orgChart && !prefersReducedMotion) {
