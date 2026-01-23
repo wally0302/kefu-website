@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wally0302.github.io/kefu-website/sitemap.xml
