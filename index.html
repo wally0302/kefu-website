@@ -2,10 +2,30 @@
 <html lang="zh-TW">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kefu - 獨立開發者的虛擬營運公司</title>
-    <meta name="description" content="Kefu 讓一人公司擁有千萬級企業的營運深度。不是客服機器人，是你的『開發時間保險』。">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>KeFu｜AI 客服與營運助理（LINE 官方帳號整合）</title>
+    <meta name="description"
+        content="KeFu 協助商家在 LINE 官方帳號上自動回覆 FAQ、整理客戶與營運資料，並透過可追蹤的轉接流程提升營運效率。" />
+
+    <link rel="canonical" href="https://wally0302.github.io/kefu-website/" />
+
+    <meta property="og:title" content="KeFu｜AI 客服與營運助理" />
+    <meta property="og:description" content="在 LINE 官方帳號上自動回覆 FAQ、整理營運資料，並用可追蹤的轉接流程提升效率。" />
+    <meta property="og:url" content="https://wally0302.github.io/kefu-website/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://wally0302.github.io/kefu-website/assets/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/kefu-website/assets/favicon.ico" />
+    <script>
+        (function () {
+            if (location.pathname === '/kefu-website/index.html') {
+                history.replaceState(null, '', '/kefu-website/' + location.search + location.hash);
+            }
+        })();
+    </script>
 
     <!-- Google Fonts: Inter (英文) & Noto Sans TC (中文) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +87,7 @@
     <!-- 導航欄 -->
     <nav class="relative z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+        <a href="/kefu-website/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
             <div
                 class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <!-- 第一個 Icon：改回 bot 以確保顯示穩定 -->
@@ -81,8 +101,8 @@
         <!-- Links & CTA -->
         <div class="flex items-center gap-6">
             <div class="hidden md:flex items-center gap-6">
-                <a href="pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
-                <a href="terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+                <a href="/kefu-website/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
+                <a href="/kefu-website/terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
             </div>
             <a href="#waitlist"
                 class="text-sm bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-lg transition-colors text-gray-300">
@@ -685,8 +705,8 @@
     <!-- Footer -->
     <footer class="relative z-10 py-12 text-center border-t border-brand-border/50 bg-brand-dark mt-auto">
         <div class="flex justify-center gap-6 mb-4 text-sm text-gray-400">
-            <a href="terms/" class="hover:text-white transition-colors">服務條款</a>
-            <a href="terms/" class="hover:text-white transition-colors">隱私權政策</a>
+            <a href="/kefu-website/terms/" class="hover:text-white transition-colors">服務條款</a>
+            <a href="/kefu-website/terms/" class="hover:text-white transition-colors">隱私權政策</a>
             <a href="mailto:support@kefu.ai" class="hover:text-white transition-colors">聯絡客服</a>
         </div>
         <p class="text-sm text-gray-600">© 2026 Kefu. All rights reserved.</p>
