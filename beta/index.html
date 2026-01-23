@@ -76,24 +76,41 @@
     </div>
 
     <!-- 導航欄 -->
-    <nav class="site-header z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
-        <a href="/kefu-website/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <div
-                class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <i data-lucide="bot" class="text-white w-5 h-5"></i>
+    <nav class="site-header z-50 px-6 py-6 max-w-7xl mx-auto">
+        <div class="flex w-full flex-col gap-4">
+            <div class="flex items-center justify-between">
+                <a href="/kefu-website/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="bot" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">KeFu <span
+                            class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">BETA</span></span>
+                </a>
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex items-center gap-6">
+                        <a href="/kefu-website/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
+                        <a href="/kefu-website/terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+                    </div>
+                    <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
+                        class="text-sm bg-white/10 border border-white/20 hover:bg-white/15 px-4 py-2 rounded-lg transition-colors text-gray-100 font-semibold shadow-md shadow-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
+                        加 LINE 申請封測
+                    </a>
+                </div>
             </div>
-            <span class="text-xl font-bold tracking-tight">KeFu <span
-                    class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">BETA</span></span>
-        </a>
-        <div class="flex items-center gap-6">
-            <div class="hidden md:flex items-center gap-6">
-                <a href="/kefu-website/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
-                <a href="/kefu-website/terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+            <div class="flex items-center justify-center" data-scroll-progress>
+                <div class="w-full max-w-md">
+                    <div class="flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-indigo-200/80">
+                        <span class="text-indigo-300">Beta 進度</span>
+                        <span class="text-indigo-100" data-progress-value>0%</span>
+                    </div>
+                    <div class="mt-2 w-full rounded-full bg-white/10 border border-white/10 overflow-hidden h-2">
+                        <div data-progress-bar
+                            class="h-full w-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-300 transition-[width] duration-200 ease-out">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
-                class="text-sm bg-white/10 border border-white/20 hover:bg-white/15 px-4 py-2 rounded-lg transition-colors text-gray-100 font-semibold shadow-md shadow-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
-                加 LINE 申請封測
-            </a>
         </div>
     </nav>
 
@@ -109,17 +126,6 @@
                 KeFu 虛擬公司封測版：<br>
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 glow-text">先把訊息接待交給虛擬團隊</span>
             </h1>
-            <div class="mt-8 flex flex-col items-center gap-3" data-scroll-progress>
-                <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-200/80">
-                    <span class="text-indigo-300">Beta 進度</span>
-                    <span class="text-indigo-100" data-progress-value>0%</span>
-                </div>
-                <div class="w-full max-w-md rounded-full bg-white/10 border border-white/10 overflow-hidden h-2">
-                    <div data-progress-bar
-                        class="h-full w-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-300 transition-[width] duration-200 ease-out">
-                    </div>
-                </div>
-            </div>
             <div class="max-w-md mx-auto flex flex-col items-center gap-4">
                 <div class="w-full sm:w-auto">
                     <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
@@ -213,10 +219,10 @@
         </section>
 
         <!-- Org Chart Modal -->
-        <div id="org-modal" class="fixed inset-0 z-[70] hidden items-center justify-center">
-            <div data-org-modal-overlay class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div id="org-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/75 backdrop-blur-sm">
+            <div data-org-modal-overlay class="absolute inset-0 bg-black/80"></div>
             <div
-                class="relative mx-4 w-full max-w-md rounded-2xl border border-brand-border/70 bg-brand-card/95 p-6 shadow-2xl">
+                class="relative mx-4 w-full max-w-md rounded-2xl border border-brand-border/70 bg-brand-card p-6 shadow-2xl">
                 <button type="button" data-org-modal-close
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                     <span class="sr-only">關閉視窗</span>
@@ -676,10 +682,10 @@
         </section>
 
         <div id="beta-exchange-modal"
-            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/70 backdrop-blur-sm"
+            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
             role="dialog" aria-modal="true" aria-labelledby="beta-exchange-title">
             <div
-                class="relative bg-brand-card/95 border border-brand-border rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/40">
+                class="relative bg-brand-card border border-brand-border rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/40">
                 <button type="button" data-modal-close="beta-exchange"
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
                     <span class="sr-only">關閉視窗</span>
@@ -709,10 +715,10 @@
         </div>
 
         <div id="beta-rules-modal"
-            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/70 backdrop-blur-sm"
+            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
             role="dialog" aria-modal="true" aria-labelledby="beta-rules-title">
             <div
-                class="relative bg-brand-card/95 border border-brand-border rounded-2xl w-full max-w-3xl shadow-2xl shadow-black/40">
+                class="relative bg-brand-card border border-brand-border rounded-2xl w-full max-w-3xl shadow-2xl shadow-black/40">
                 <button type="button" data-modal-close="beta-rules"
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
                     <span class="sr-only">關閉視窗</span>
