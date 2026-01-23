@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     revealTargets.forEach((target) => {
+        const revealDelay = target.dataset.revealDelay;
+        if (revealDelay) {
+            const delayValue = /^\d+$/.test(revealDelay) ? `${revealDelay}ms` : revealDelay;
+            target.style.transitionDelay = delayValue;
+        }
         revealObserver.observe(target);
     });
 });
