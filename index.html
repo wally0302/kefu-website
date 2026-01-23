@@ -296,21 +296,6 @@
                         </li>
                     </ul>
 
-                    <!-- New Expansion Note -->
-                    <div class="mt-8 pt-6 border-t border-gray-800">
-                        <div
-                            class="flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl border border-dashed border-gray-700">
-                            <div
-                                class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600">
-                                <i data-lucide="plus" class="w-4 h-4 text-indigo-400"></i>
-                            </div>
-                            <p>
-                                <span class="text-white font-medium">持續擴編中：</span>
-                                目前先提供 <span class="text-indigo-300">客服部與人機協作</span> 兩位虛擬員工，後續會逐步擴增更多職位。
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Right: Visual (Org Chart Style) -->
@@ -360,7 +345,7 @@
                              So w-1/2 is perfect.
                         -->
                         <div data-org-node="connector-branch"
-                            class="w-1/2 h-6 border-t-2 border-x-2 border-indigo-500 rounded-t-sm relative shrink-0">
+                            class="w-1/2 h-6 border-t-2 border-x-2 border-indigo-500 rounded-t-sm relative shrink-0 z-0">
                             <!-- This creates a U-shape UPSIDE DOWN if we use border-t and border-x? 
                                  No, border-x creates vertical lines at the ends. border-t creates the bridge.
                                  Perfect.
@@ -371,7 +356,7 @@
                         <div class="w-full grid grid-cols-2 gap-8 px-4 mt-[-4px] shrink-0">
                             <!-- Left: FAQ Agent -->
                             <div data-org-node="faq" role="button" tabindex="0"
-                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-10 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400/80">
+                                class="bg-gradient-to-b from-green-900/30 via-brand-dark to-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400/80">
                                 <div
                                     class="w-10 h-10 rounded-full bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <i data-lucide="message-circle" class="text-green-400 w-5 h-5"></i>
@@ -384,7 +369,7 @@
 
                             <!-- Right: Handover Agent -->
                             <div data-org-node="handover" role="button" tabindex="0"
-                                class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-10 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400/80">
+                                class="bg-gradient-to-b from-orange-900/30 via-brand-dark to-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400/80">
                                 <div
                                     class="w-10 h-10 rounded-full bg-orange-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <i data-lucide="users" class="text-orange-400 w-5 h-5"></i>
@@ -394,6 +379,17 @@
                                     <div class="text-xs text-gray-500">Handover Agent</div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div data-org-node="expansion"
+                            class="mt-6 w-full flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl border border-dashed border-gray-700">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600">
+                                <i data-lucide="plus" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <p>
+                                <span class="text-white font-medium">持續擴編中：</span>
+                                目前先提供 <span class="text-indigo-300">客服部與人機協作</span> 兩位虛擬員工，後續會逐步擴增更多職位。
+                            </p>
                         </div>
 
                     </div>
@@ -863,6 +859,7 @@
                 connectorBranch: orgChart.querySelector('[data-org-node="connector-branch"]'),
                 faq: orgChart.querySelector('[data-org-node="faq"]'),
                 handover: orgChart.querySelector('[data-org-node="handover"]'),
+                expansion: orgChart.querySelector('[data-org-node="expansion"]'),
             };
 
             const animateNode = (element, keyframes, options, delay = 0) => {
@@ -883,6 +880,7 @@
                 resetNode(nodes.connectorBranch, { opacity: '0', transform: 'scaleX(0)' });
                 resetNode(nodes.faq, { opacity: '0', transform: 'translateY(12px)' });
                 resetNode(nodes.handover, { opacity: '0', transform: 'translateY(12px)' });
+                resetNode(nodes.expansion, { opacity: '0', transform: 'translateY(12px)' });
 
                 if (nodes.connectorTop) nodes.connectorTop.style.transformOrigin = 'top';
                 if (nodes.connectorMid) nodes.connectorMid.style.transformOrigin = 'top';
@@ -916,6 +914,10 @@
                     { opacity: 0, transform: 'translateY(12px)' },
                     { opacity: 1, transform: 'translateY(0)' },
                 ], {}, 1040);
+                animateNode(nodes.expansion, [
+                    { opacity: 0, transform: 'translateY(12px)' },
+                    { opacity: 1, transform: 'translateY(0)' },
+                ], {}, 1180);
             };
 
             const totalCycleDuration = 2600;
