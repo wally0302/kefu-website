@@ -292,7 +292,7 @@
 
                 <!-- Right: Visual (Org Chart Style) -->
                 <div data-org-chart
-                    class="relative min-w-0 w-full overflow-hidden bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20 h-[500px]">
+                    class="relative min-w-0 w-full overflow-hidden bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20 h-auto min-h-[520px]">
                     <!-- Decor: Window Header -->
                     <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
                         <div class="text-xs text-gray-500">Kefu_Virtual_Org_Chart.pdf</div>
@@ -304,7 +304,7 @@
                     </div>
 
                     <!-- Diagram Container (Flex Column) -->
-                    <div class="relative h-full flex flex-col items-center pb-2">
+                    <div class="relative h-full flex flex-col items-center pb-6 pt-2">
 
                         <!-- Level 1: CEO -->
                         <div data-org-node="ceo"
@@ -314,7 +314,7 @@
 
                         <!-- Connector 1: Flexible Line -->
                         <div data-org-node="connector-top"
-                            class="w-px bg-gray-600 flex-1 border-l border-dashed border-gray-600 opacity-50"></div>
+                            class="w-px bg-gray-600 h-20 border-l border-dashed border-gray-600 opacity-50 shrink-0"></div>
 
                         <!-- Level 2: COO (Root Agent) -->
                         <div data-org-node="root"
@@ -371,6 +371,13 @@
                                     <div class="text-sm font-bold text-white">人機協作</div>
                                     <div class="text-xs text-gray-500">Handover Agent</div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 w-full px-4">
+                            <div
+                                class="text-xs text-gray-400 bg-brand-dark/70 border border-dashed border-gray-700 rounded-lg px-4 py-3 text-center">
+                                虛擬員工將持續擴增中，目前階段先由以上兩位核心成員提供服務。
                             </div>
                         </div>
 
@@ -759,12 +766,32 @@
                 handover: orgChart.querySelector('[data-org-node="handover"]'),
             };
 
+            const animationBaseDuration = 800;
             const animateNode = (element, keyframes, options, delay = 0) => {
                 if (!element) return;
-                element.animate(keyframes, { duration: 500, easing: 'ease-out', fill: 'forwards', delay, ...options });
+                element.animate(keyframes, {
+                    duration: animationBaseDuration,
+                    easing: 'ease-out',
+                    fill: 'forwards',
+                    delay,
+                    ...options,
+                });
+            };
+
+            const resetNode = (element, styles) => {
+                if (!element) return;
+                Object.assign(element.style, styles);
             };
 
             const runOrgChartAnimation = () => {
+                resetNode(nodes.ceo, { opacity: '0', transform: 'translateY(12px) scale(0.98)' });
+                resetNode(nodes.connectorTop, { opacity: '0', transform: 'scaleY(0)' });
+                resetNode(nodes.root, { opacity: '0', transform: 'translateY(16px) scale(0.98)' });
+                resetNode(nodes.connectorMid, { opacity: '0', transform: 'scaleY(0)' });
+                resetNode(nodes.connectorBranch, { opacity: '0', transform: 'scaleX(0)' });
+                resetNode(nodes.faq, { opacity: '0', transform: 'translateY(12px)' });
+                resetNode(nodes.handover, { opacity: '0', transform: 'translateY(12px)' });
+
                 if (nodes.connectorTop) nodes.connectorTop.style.transformOrigin = 'top';
                 if (nodes.connectorMid) nodes.connectorMid.style.transformOrigin = 'top';
                 if (nodes.connectorBranch) nodes.connectorBranch.style.transformOrigin = 'center';
@@ -788,7 +815,7 @@
                 animateNode(nodes.connectorBranch, [
                     { opacity: 0, transform: 'scaleX(0)' },
                     { opacity: 1, transform: 'scaleX(1)' },
-                ], { duration: 450 }, 520);
+                ], { duration: 700 }, 520);
                 animateNode(nodes.faq, [
                     { opacity: 0, transform: 'translateY(12px)' },
                     { opacity: 1, transform: 'translateY(0)' },
@@ -799,11 +826,27 @@
                 ], {}, 720);
             };
 
-            const observer = new IntersectionObserver((entries, obs) => {
+            const totalCycleDuration = 2600;
+            let animationTimer = null;
+
+            const startOrgChartLoop = () => {
+                if (animationTimer) return;
+                runOrgChartAnimation();
+                animationTimer = window.setInterval(runOrgChartAnimation, totalCycleDuration);
+            };
+
+            const stopOrgChartLoop = () => {
+                if (!animationTimer) return;
+                window.clearInterval(animationTimer);
+                animationTimer = null;
+            };
+
+            const observer = new IntersectionObserver((entries) => {
                 const entry = entries[0];
                 if (entry.isIntersecting) {
-                    runOrgChartAnimation();
-                    obs.disconnect();
+                    startOrgChartLoop();
+                } else {
+                    stopOrgChartLoop();
                 }
             }, { threshold: 0.35 });
 
