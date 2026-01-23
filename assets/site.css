@@ -48,6 +48,25 @@ body {
     transform: translateY(0);
 }
 
+@keyframes blob-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(4%, -3%, 0) scale(1.04);
+    }
+}
+
+.animate-blob {
+    animation: blob-float 22s ease-in-out infinite;
+    will-change: transform;
+}
+
+.animate-blob-delay {
+    animation-delay: -6s;
+}
+
 details > summary {
     list-style: none;
 }
@@ -200,6 +219,11 @@ details > summary::-webkit-details-marker {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    .animate-blob {
+        animation: none;
+        transform: none;
     }
 }
 
