@@ -109,6 +109,17 @@
                 KeFu 虛擬公司封測版：<br>
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 glow-text">先把訊息接待交給虛擬團隊</span>
             </h1>
+            <div class="mt-8 flex flex-col items-center gap-3" data-scroll-progress>
+                <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-200/80">
+                    <span class="text-indigo-300">Beta 進度</span>
+                    <span class="text-indigo-100" data-progress-value>0%</span>
+                </div>
+                <div class="w-full max-w-md rounded-full bg-white/10 border border-white/10 overflow-hidden h-2">
+                    <div data-progress-bar
+                        class="h-full w-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-300 transition-[width] duration-200 ease-out">
+                    </div>
+                </div>
+            </div>
             <div class="max-w-md mx-auto flex flex-col items-center gap-4">
                 <div class="w-full sm:w-auto">
                     <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
@@ -1065,6 +1076,35 @@
         if (orgModalClose) {
             orgModalClose.addEventListener('click', closeOrgModal);
         }
+
+        const progressBar = document.querySelector('[data-progress-bar]');
+        const progressValue = document.querySelector('[data-progress-value]');
+        let progressTicking = false;
+
+        const updateScrollProgress = () => {
+            const scrollTop = window.scrollY || window.pageYOffset;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 100;
+            const roundedProgress = Math.min(100, Math.max(0, Math.round(progress)));
+            if (progressBar) {
+                progressBar.style.width = `${roundedProgress}%`;
+            }
+            if (progressValue) {
+                progressValue.textContent = `${roundedProgress}%`;
+            }
+            progressTicking = false;
+        };
+
+        const requestProgressUpdate = () => {
+            if (!progressTicking) {
+                progressTicking = true;
+                window.requestAnimationFrame(updateScrollProgress);
+            }
+        };
+
+        window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+        window.addEventListener('resize', requestProgressUpdate);
+        updateScrollProgress();
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
