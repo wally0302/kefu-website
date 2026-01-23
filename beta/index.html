@@ -27,6 +27,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/kefu-website/assets/site.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <script src="/kefu-website/assets/tailwind-base.js"></script>
     <script>
@@ -565,40 +566,50 @@
                 </div>
 
                 <div class="feedback-carousel">
-                    <div class="feedback-hint feedback-hint-left" aria-hidden="true">
+                    <button type="button" class="feedback-hint feedback-hint-left" aria-label="上一則回饋">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                    </div>
-                    <div class="feedback-hint feedback-hint-right" aria-hidden="true">
+                    </button>
+                    <button type="button" class="feedback-hint feedback-hint-right" aria-label="下一則回饋">
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </div>
-                    <div data-feedback-carousel
-                        class="feedback-scroll hide-scrollbar focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/60"
-                        tabindex="0" aria-label="客戶回饋輪播">
-                        <article class="feedback-card">
-                            <h3 class="text-lg font-bold">新芽咖啡</h3>
-                            <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
-                            <p class="mt-4 text-sm">客人問題 24/7 都能回覆，訂單諮詢量大增。</p>
-                        </article>
-                        <article class="feedback-card">
-                            <h3 class="text-lg font-bold">拾光甜點</h3>
-                            <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
-                            <p class="mt-4 text-sm">導入後每週節省 6 小時客服時間，回覆也更一致。</p>
-                        </article>
-                        <article class="feedback-card">
-                            <h3 class="text-lg font-bold">零界健身</h3>
-                            <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
-                            <p class="mt-4 text-sm">會員預約流程更順，轉接真人的比例也下降了。</p>
-                        </article>
-                        <article class="feedback-card">
-                            <h3 class="text-lg font-bold">好好選物</h3>
-                            <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
-                            <p class="mt-4 text-sm">FAQ 自動整理超省心，新客下單率提升。</p>
-                        </article>
-                        <article class="feedback-card">
-                            <h3 class="text-lg font-bold">海嵐旅宿</h3>
-                            <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
-                            <p class="mt-4 text-sm">深夜詢問不再漏接，住客滿意度直線上升。</p>
-                        </article>
+                    </button>
+                    <div class="swiper feedback-swiper" tabindex="0" aria-label="客戶回饋輪播">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <article class="feedback-card">
+                                    <h3 class="text-lg font-bold">新芽咖啡</h3>
+                                    <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
+                                    <p class="mt-4 text-sm">客人問題 24/7 都能回覆，訂單諮詢量大增。</p>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="feedback-card">
+                                    <h3 class="text-lg font-bold">拾光甜點</h3>
+                                    <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
+                                    <p class="mt-4 text-sm">導入後每週節省 6 小時客服時間，回覆也更一致。</p>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="feedback-card">
+                                    <h3 class="text-lg font-bold">零界健身</h3>
+                                    <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
+                                    <p class="mt-4 text-sm">會員預約流程更順，轉接真人的比例也下降了。</p>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="feedback-card">
+                                    <h3 class="text-lg font-bold">好好選物</h3>
+                                    <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
+                                    <p class="mt-4 text-sm">FAQ 自動整理超省心，新客下單率提升。</p>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="feedback-card">
+                                    <h3 class="text-lg font-bold">海嵐旅宿</h3>
+                                    <div class="mt-3 h-px w-14 bg-indigo-400/60"></div>
+                                    <p class="mt-4 text-sm">深夜詢問不再漏接，住客滿意度直線上升。</p>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -965,6 +976,7 @@
     </footer>
 
     <script src="/kefu-website/assets/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const setupModal = (name) => {
             const modal = document.getElementById(`${name}-modal`);
@@ -1101,62 +1113,45 @@
         window.addEventListener('resize', requestProgressUpdate);
         updateScrollProgress();
 
-        const feedbackCarousel = document.querySelector('[data-feedback-carousel]');
-        if (feedbackCarousel) {
-            let isPaused = false;
-            let resumeTimeout;
-            let animationFrame;
-            const scrollSpeed = 0.4;
-            const idleDelay = 3200;
-
-            const step = () => {
-                if (!isPaused) {
-                    feedbackCarousel.scrollLeft += scrollSpeed;
-                    if (feedbackCarousel.scrollLeft + feedbackCarousel.clientWidth >= feedbackCarousel.scrollWidth - 2) {
-                        feedbackCarousel.scrollLeft = 0;
-                    }
-                }
-                animationFrame = window.requestAnimationFrame(step);
-            };
-
-            const pauseAutoScroll = () => {
-                isPaused = true;
-                window.clearTimeout(resumeTimeout);
-            };
-
-            const scheduleResume = () => {
-                window.clearTimeout(resumeTimeout);
-                resumeTimeout = window.setTimeout(() => {
-                    isPaused = false;
-                }, idleDelay);
-            };
-
-            const handleInteraction = () => {
-                pauseAutoScroll();
-                scheduleResume();
-            };
-
-            const handleHoverStart = () => {
-                pauseAutoScroll();
-            };
-
-            const handleHoverEnd = () => {
-                scheduleResume();
-            };
-
-            feedbackCarousel.addEventListener('pointerdown', handleInteraction);
-            feedbackCarousel.addEventListener('touchstart', handleInteraction, { passive: true });
-            feedbackCarousel.addEventListener('wheel', handleInteraction, { passive: true });
-            feedbackCarousel.addEventListener('keydown', handleInteraction);
-            feedbackCarousel.addEventListener('mouseenter', handleHoverStart);
-            feedbackCarousel.addEventListener('mouseleave', handleHoverEnd);
-            feedbackCarousel.addEventListener('focusin', handleHoverStart);
-            feedbackCarousel.addEventListener('focusout', handleHoverEnd);
-
-            step();
-            window.addEventListener('beforeunload', () => {
-                if (animationFrame) window.cancelAnimationFrame(animationFrame);
+        const feedbackSwiperEl = document.querySelector('.feedback-swiper');
+        if (feedbackSwiperEl && window.Swiper) {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const feedbackSwiper = new window.Swiper(feedbackSwiperEl, {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+                grabCursor: true,
+                autoplay: prefersReducedMotion
+                    ? false
+                    : {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    },
+                navigation: {
+                    nextEl: '.feedback-hint-right',
+                    prevEl: '.feedback-hint-left',
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
             });
+
+            const handleFocusIn = () => {
+                if (!prefersReducedMotion && feedbackSwiper.autoplay) {
+                    feedbackSwiper.autoplay.stop();
+                }
+            };
+
+            const handleFocusOut = () => {
+                if (!prefersReducedMotion && feedbackSwiper.autoplay) {
+                    feedbackSwiper.autoplay.start();
+                }
+            };
+
+            feedbackSwiperEl.addEventListener('focusin', handleFocusIn);
+            feedbackSwiperEl.addEventListener('focusout', handleFocusOut);
         }
 
         document.addEventListener('keydown', (event) => {
