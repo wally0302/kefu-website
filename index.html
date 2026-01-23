@@ -27,11 +27,16 @@
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 3s ease-in-out infinite',
+                        'fade-up': 'fade-up 0.8s ease-out forwards',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'fade-up': {
+                            '0%': { opacity: '0', transform: 'translateY(16px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                     },
                 },
@@ -350,6 +355,90 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="relative z-10 py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <div class="text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-3">How it works</div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">3 分鐘了解你的虛擬公司如何上線</h2>
+                <p class="text-gray-400">從設定到營運，Kefu 幫你把流程拆成清楚的時間軸步驟。</p>
+            </div>
+
+            <div class="relative max-w-3xl mx-auto">
+                <div class="absolute left-5 top-0 h-full w-px bg-indigo-500/30"></div>
+                <div class="space-y-8">
+                    <div class="relative pl-16 group opacity-0 animate-fade-up" style="animation-delay: 0.05s;">
+                        <div
+                            class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                            01
+                        </div>
+                        <div
+                            class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="clipboard-check" class="w-5 h-5 text-indigo-300"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">填寫公司設定</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">輸入品牌介紹、FAQ 與服務範圍，AI 立刻理解你的營運需求。</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-16 group opacity-0 animate-fade-up" style="animation-delay: 0.15s;">
+                        <div
+                            class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                            02
+                        </div>
+                        <div
+                            class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="wand-2" class="w-5 h-5 text-indigo-300"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">AI 自動編制團隊</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">系統自動建立客服、營運與轉接角色，並指派各自職責。</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-16 group opacity-0 animate-fade-up" style="animation-delay: 0.25s;">
+                        <div
+                            class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                            03
+                        </div>
+                        <div
+                            class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="plug" class="w-5 h-5 text-indigo-300"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">一鍵串接渠道</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">接上 LINE 官方帳號或網站視窗，訊息即時導入你的 AI 團隊。</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-16 group opacity-0 animate-fade-up" style="animation-delay: 0.35s;">
+                        <div
+                            class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                            04
+                        </div>
+                        <div
+                            class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="rocket" class="w-5 h-5 text-indigo-300"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">即刻開始營運</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">AI 全天候接待顧客，你專心做決策與產品迭代。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
