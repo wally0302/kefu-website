@@ -219,10 +219,10 @@
     <!-- Core Solution (Virtual Org Chart) -->
     <section class="relative z-10 py-24 bg-black/20 border-y border-brand-border/50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
 
                 <!-- Left: Text -->
-                <div>
+                <div class="min-w-0">
                     <div class="inline-block text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-4">Your
                         AI Team Roster</div>
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">介紹你的新同事：<br><span
@@ -291,8 +291,8 @@
                 </div>
 
                 <!-- Right: Visual (Org Chart Style) -->
-                <div
-                    class="relative bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20 h-[500px]">
+                <div data-org-chart
+                    class="relative min-w-0 w-full overflow-hidden bg-brand-card border border-brand-border rounded-2xl p-8 shadow-2xl shadow-indigo-900/20 h-[500px]">
                     <!-- Decor: Window Header -->
                     <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
                         <div class="text-xs text-gray-500">Kefu_Virtual_Org_Chart.pdf</div>
@@ -307,16 +307,17 @@
                     <div class="relative h-full flex flex-col items-center pb-2">
 
                         <!-- Level 1: CEO -->
-                        <div
+                        <div data-org-node="ceo"
                             class="z-10 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center bg-brand-card shrink-0">
                             <span class="text-xs text-gray-500">YOU (CEO)</span>
                         </div>
 
                         <!-- Connector 1: Flexible Line -->
-                        <div class="w-px bg-gray-600 flex-1 border-l border-dashed border-gray-600 opacity-50"></div>
+                        <div data-org-node="connector-top"
+                            class="w-px bg-gray-600 flex-1 border-l border-dashed border-gray-600 opacity-50"></div>
 
                         <!-- Level 2: COO (Root Agent) -->
-                        <div
+                        <div data-org-node="root"
                             class="z-10 w-48 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow shadow-lg shadow-indigo-500/20 shrink-0">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="cpu" class="text-indigo-300 w-5 h-5"></i>
@@ -326,7 +327,7 @@
                         </div>
 
                         <!-- Connector 2: Vertical to Branch -->
-                        <div class="w-px bg-indigo-500 h-8 shrink-0"></div>
+                        <div data-org-node="connector-mid" class="w-px bg-indigo-500 h-8 shrink-0"></div>
 
                         <!-- Connector 3: The Branch (Bracket) -->
                         <!-- Width 50% + gap adjustments. 
@@ -336,7 +337,8 @@
                              Actually, if grid is even, centers are exactly 25% and 75%. Distance is 50%.
                              So w-1/2 is perfect.
                         -->
-                        <div class="w-1/2 h-6 border-t-2 border-x-2 border-indigo-500 rounded-t-sm relative shrink-0">
+                        <div data-org-node="connector-branch"
+                            class="w-1/2 h-6 border-t-2 border-x-2 border-indigo-500 rounded-t-sm relative shrink-0">
                             <!-- This creates a U-shape UPSIDE DOWN if we use border-t and border-x? 
                                  No, border-x creates vertical lines at the ends. border-t creates the bridge.
                                  Perfect.
@@ -346,7 +348,7 @@
                         <!-- Level 3: Sub Agents (Grid) -->
                         <div class="w-full grid grid-cols-2 gap-8 px-4 mt-[-4px] shrink-0">
                             <!-- Left: FAQ Agent -->
-                            <div
+                            <div data-org-node="faq"
                                 class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-10">
                                 <div
                                     class="w-10 h-10 rounded-full bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -359,7 +361,7 @@
                             </div>
 
                             <!-- Right: Handover Agent -->
-                            <div
+                            <div data-org-node="handover"
                                 class="bg-brand-dark border border-gray-700 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-10">
                                 <div
                                     class="w-10 h-10 rounded-full bg-orange-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -742,6 +744,71 @@
                 }, 2000);
             });
         });
+
+        const orgChart = document.querySelector('[data-org-chart]');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (orgChart && !prefersReducedMotion) {
+            const nodes = {
+                ceo: orgChart.querySelector('[data-org-node="ceo"]'),
+                connectorTop: orgChart.querySelector('[data-org-node="connector-top"]'),
+                root: orgChart.querySelector('[data-org-node="root"]'),
+                connectorMid: orgChart.querySelector('[data-org-node="connector-mid"]'),
+                connectorBranch: orgChart.querySelector('[data-org-node="connector-branch"]'),
+                faq: orgChart.querySelector('[data-org-node="faq"]'),
+                handover: orgChart.querySelector('[data-org-node="handover"]'),
+            };
+
+            const animateNode = (element, keyframes, options, delay = 0) => {
+                if (!element) return;
+                element.animate(keyframes, { duration: 500, easing: 'ease-out', fill: 'forwards', delay, ...options });
+            };
+
+            const runOrgChartAnimation = () => {
+                if (nodes.connectorTop) nodes.connectorTop.style.transformOrigin = 'top';
+                if (nodes.connectorMid) nodes.connectorMid.style.transformOrigin = 'top';
+                if (nodes.connectorBranch) nodes.connectorBranch.style.transformOrigin = 'center';
+
+                animateNode(nodes.ceo, [
+                    { opacity: 0, transform: 'translateY(12px) scale(0.98)' },
+                    { opacity: 1, transform: 'translateY(0) scale(1)' },
+                ]);
+                animateNode(nodes.connectorTop, [
+                    { opacity: 0, transform: 'scaleY(0)' },
+                    { opacity: 0.8, transform: 'scaleY(1)' },
+                ], {}, 150);
+                animateNode(nodes.root, [
+                    { opacity: 0, transform: 'translateY(16px) scale(0.98)' },
+                    { opacity: 1, transform: 'translateY(0) scale(1)' },
+                ], {}, 280);
+                animateNode(nodes.connectorMid, [
+                    { opacity: 0, transform: 'scaleY(0)' },
+                    { opacity: 1, transform: 'scaleY(1)' },
+                ], {}, 420);
+                animateNode(nodes.connectorBranch, [
+                    { opacity: 0, transform: 'scaleX(0)' },
+                    { opacity: 1, transform: 'scaleX(1)' },
+                ], { duration: 450 }, 520);
+                animateNode(nodes.faq, [
+                    { opacity: 0, transform: 'translateY(12px)' },
+                    { opacity: 1, transform: 'translateY(0)' },
+                ], {}, 650);
+                animateNode(nodes.handover, [
+                    { opacity: 0, transform: 'translateY(12px)' },
+                    { opacity: 1, transform: 'translateY(0)' },
+                ], {}, 720);
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    runOrgChartAnimation();
+                    obs.disconnect();
+                }
+            }, { threshold: 0.35 });
+
+            observer.observe(orgChart);
+        }
     </script>
 </body>
 
