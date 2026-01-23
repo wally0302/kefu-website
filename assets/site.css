@@ -166,7 +166,27 @@ details > summary::-webkit-details-marker {
     display: none;
 }
 
+@keyframes blob-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(12px, -8px, 0) scale(1.04);
+    }
+}
+
+.animate-blob {
+    animation: blob-float 22s ease-in-out infinite;
+    will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
+    .animate-blob {
+        animation: none;
+        transform: none;
+    }
+
     .scroll-reveal {
         opacity: 1;
         transform: none;
