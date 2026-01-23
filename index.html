@@ -87,41 +87,86 @@
     </nav>
 
     <!-- Hero Section (首屏) - 虛擬公司概念 -->
-    <header class="relative z-10 pt-16 pb-24 px-6 text-center max-w-4xl mx-auto">
-        <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8 animate-fade-in-up">
-            <span class="relative flex h-2 w-2">
-                <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-            </span>
-            虛擬總部系統上線中
+    <header class="relative z-10 pt-16 pb-24 px-6">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8 animate-fade-in-up">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    虛擬總部系統上線中
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
+                    一人開發，<br>
+                    <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 glow-text">像百人企業一樣營運</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Kefu 為你一鍵生成「虛擬營運公司」。<br>
+                    不用面試、不用勞健保，立刻擁有一支全天候待命的 AI 菁英團隊，<br>你只需專注於 CEO 的決策與產品開發。
+                </p>
+
+                <!-- Waitlist Form (Hero) -->
+                <form class="max-w-md mx-auto lg:mx-0 flex flex-col sm:flex-row gap-3 waitlist-form">
+                    <input type="email" placeholder="輸入 Gmail 建立你的公司" required
+                        class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
+                    <button type="submit"
+                        class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                        <span>立即招聘 AI 團隊</span>
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </button>
+                </form>
+                <p class="mt-4 text-xs text-gray-500 flex justify-center lg:justify-start items-center gap-1">
+                    <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i> 目前已有 500+ 間虛擬公司成立運作中
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -top-6 -right-6 w-40 h-40 bg-indigo-500/20 blur-[80px] rounded-full"></div>
+                <div class="absolute -bottom-8 left-0 w-32 h-32 bg-purple-500/20 blur-[80px] rounded-full"></div>
+                <div
+                    class="relative overflow-hidden rounded-3xl border border-white/10 bg-brand-card/90 p-6 backdrop-blur-sm shadow-2xl shadow-indigo-500/10">
+                    <div class="hero-sweep"></div>
+                    <div class="flex items-center justify-between text-xs uppercase tracking-widest text-gray-400 mb-6">
+                        <span>Virtual Ops Flow</span>
+                        <span class="text-indigo-300">Live</span>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 hero-float">
+                            <div class="h-10 w-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-indigo-300"></i>
+                            </div>
+                            <div class="flex-1 text-sm text-gray-300">自動整理需求 → 建立任務隊列</div>
+                            <span class="text-[10px] text-indigo-300">00:12</span>
+                        </div>
+                        <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 hero-float-delayed">
+                            <div class="h-10 w-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                <i data-lucide="workflow" class="w-5 h-5 text-purple-300"></i>
+                            </div>
+                            <div class="flex-1 text-sm text-gray-300">AI 小隊同步接手 FAQ / 指引 / 追蹤</div>
+                            <span class="text-[10px] text-purple-300">00:24</span>
+                        </div>
+                        <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 hero-float">
+                            <div class="h-10 w-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                <i data-lucide="radar" class="w-5 h-5 text-blue-300"></i>
+                            </div>
+                            <div class="flex-1 text-sm text-gray-300">即時回報關鍵決策點</div>
+                            <span class="text-[10px] text-blue-300">00:31</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-xs text-gray-400">
+                        <span>平均節省 6.5 小時 / 週</span>
+                        <span class="text-indigo-300">全自動運轉中</span>
+                    </div>
+                </div>
+                <p class="mt-4 text-center lg:text-left text-sm text-indigo-200">流程在跑，開發不中斷。</p>
+            </div>
         </div>
-
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
-            一人開發，<br>
-            <span
-                class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 glow-text">像百人企業一樣營運</span>
-        </h1>
-
-        <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Kefu 為你一鍵生成「虛擬營運公司」。<br>
-            不用面試、不用勞健保，立刻擁有一支全天候待命的 AI 菁英團隊，<br>你只需專注於 CEO 的決策與產品開發。
-        </p>
-
-        <!-- Waitlist Form (Hero) -->
-        <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form">
-            <input type="email" placeholder="輸入 Gmail 建立你的公司" required
-                class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
-            <button type="submit"
-                class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                <span>立即招聘 AI 團隊</span>
-                <i data-lucide="briefcase" class="w-4 h-4"></i>
-            </button>
-        </form>
-        <p class="mt-4 text-xs text-gray-500 flex justify-center items-center gap-1">
-            <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i> 目前已有 500+ 間虛擬公司成立運作中
-        </p>
     </header>
 
     <!-- Pain Points (痛點) -->
