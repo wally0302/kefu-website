@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>KeFu 封測版｜虛擬公司接待系統</title>
+    <meta name="description" content="KeFu 虛擬公司封測版，限量 5 名，14 天免費體驗智能問卷與虛擬團隊後台。" />
+
+    <link rel="canonical" href="https://wally0302.github.io/kefu-website/beta/" />
+
+    <meta property="og:title" content="KeFu 虛擬公司封測版" />
+    <meta property="og:description" content="限量 5 名，14 天免費體驗智能問卷與虛擬團隊後台。" />
+    <meta property="og:url" content="https://wally0302.github.io/kefu-website/beta/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://wally0302.github.io/kefu-website/assets/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/kefu-website/assets/favicon.ico" />
+
+    <!-- Google Fonts: Inter (英文) & Noto Sans TC (中文) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/kefu-website/assets/site.css">
+
+    <script src="/kefu-website/assets/tailwind-base.js"></script>
+    <script>
+        window.setTailwindConfig({
+            theme: {
+                extend: {
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 50%)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-up': 'fade-up 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'fade-up': {
+                            '0%': { opacity: '0', transform: 'translateY(16px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        });
+    </script>
+
+    <!-- Tailwind CSS (快速排版與響應式設計) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons (輕量級圖標) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="relative overflow-x-hidden">
+    <!-- 背景裝飾 -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
+        <div
+            class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] mix-blend-screen">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] mix-blend-screen">
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="site-header z-50 px-6 py-6 max-w-7xl mx-auto flex justify-between items-center">
+        <a href="/kefu-website/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <div
+                class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <i data-lucide="bot" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight">KeFu <span
+                    class="text-xs font-normal text-gray-500 ml-1 border border-gray-700 px-1 rounded hidden sm:inline-block">BETA</span></span>
+        </a>
+        <div class="flex items-center gap-6">
+            <div class="hidden md:flex items-center gap-6">
+                <a href="/kefu-website/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors">價格方案</a>
+                <a href="/kefu-website/terms/" class="text-sm text-gray-400 hover:text-white transition-colors">服務條款</a>
+            </div>
+            <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
+                class="text-sm bg-white/5 border border-white/10 hover:bg-white/10 px-4 py-2 rounded-lg transition-colors text-gray-300">
+                加 LINE 申請封測
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- 1) Hero 首屏 -->
+        <header class="relative pt-16 pb-24 px-6 text-center max-w-5xl mx-auto">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-medium mb-8">
+                🔥 限量 5 名｜啟用日起 14 天免費（每日 50 則上限）
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">
+                KeFu 虛擬公司封測版：<br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 glow-text">先把訊息接待交給虛擬團隊</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-300 mb-6 max-w-3xl mx-auto">
+                封測版目前只開放 <strong>2 個核心功能</strong>：<br>
+                <span class="text-indigo-300 font-semibold">智能問卷</span>（5 分鐘建置）＋
+                <span class="text-indigo-300 font-semibold">虛擬團隊後台</span>（接待／轉接）
+            </p>
+
+            <div class="grid gap-4 sm:grid-cols-3 text-left max-w-4xl mx-auto mb-8">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5">
+                    <p class="text-sm text-gray-200 font-semibold">✅ 5 分鐘建置</p>
+                    <p class="text-xs text-gray-400 mt-2">用問卷把品牌資訊、FAQ、規則收斂成可用設定</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5">
+                    <p class="text-sm text-gray-200 font-semibold">✅ 24/7 接待</p>
+                    <p class="text-xs text-gray-400 mt-2">先從 LINE 官方帳號開始接住重複訊息</p>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5">
+                    <p class="text-sm text-gray-200 font-semibold">✅ 可追蹤轉接</p>
+                    <p class="text-xs text-gray-400 mt-2">需要你出手時才轉接，並帶上「原因」</p>
+                </div>
+            </div>
+
+            <div class="max-w-md mx-auto flex flex-col items-center gap-3">
+                <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
+                    class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <span>加 LINE 申請封測（限量 5 名）</span>
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </a>
+                <p class="text-xs text-gray-400">加好友後輸入關鍵字 <strong>「試用」</strong>，填寫商家基本資料即可申請。<br>
+                    （我們會優先挑選「真的有在經營、願意回饋」的店家）</p>
+                <a href="#fit" class="text-xs text-indigo-300 hover:text-indigo-200 transition-colors">我適合加入嗎？ →（滑到「適合/不適合」）</a>
+            </div>
+        </header>
+
+        <!-- 2) 封測交付物 -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">加入不是來陪我測 bug，你會拿到「可用的成果」。</h2>
+                    <p class="text-gray-400">封測交付物</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                                <i data-lucide="file-text" class="w-5 h-5 text-indigo-300"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">智能問卷</h3>
+                        </div>
+                        <p class="text-sm text-gray-400">把品牌介紹、服務範圍、常見問題與規則，整理成「虛擬團隊能懂、能用」的設定。</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5 text-indigo-300"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">虛擬團隊後台</h3>
+                        </div>
+                        <p class="text-sm text-gray-400">你看得到：接待策略、回覆內容、轉接原因與紀錄（不是黑盒）。</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                                <i data-lucide="archive" class="w-5 h-5 text-indigo-300"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold">設定可保留</h3>
+                        </div>
+                        <p class="text-sm text-gray-400">封測到期後設定仍保留（至少到公測／或保留 <strong>30 天</strong>）。</p>
+                        <p class="text-xs text-gray-500 mt-3">你也可以要求刪除資料，我們會協助處理。</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-400 text-center mt-10">封測的目標只有一個：<strong>讓你真實跑起來，拿到「省下多少時間」的答案。</strong></p>
+            </div>
+        </section>
+
+        <!-- 3) 封測規則 -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">封測規則（透明公開，公平使用）</h2>
+                    <p class="text-gray-400">封測方案卡</p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="users" class="w-5 h-5 text-indigo-300"></i>
+                            <p class="text-sm text-gray-300">名額：限量 <strong>5 名</strong></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="calendar" class="w-5 h-5 text-indigo-300"></i>
+                            <p class="text-sm text-gray-300">期限：啟用日起 <strong>14 天</strong></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-indigo-300"></i>
+                            <p class="text-sm text-gray-300">用量：每日 <strong>50 則自動回覆</strong> 上限</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-indigo-300 mt-1"></i>
+                            <p class="text-sm text-gray-300">超額處理：當日達上限後暫停自動回覆，隔日恢復，並發出保底提示訊息。</p>
+                        </div>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="layers" class="w-5 h-5 text-indigo-300 mt-1"></i>
+                            <p class="text-sm text-gray-300">封測範圍：只開放 <strong>智能問卷 + 虛擬團隊後台（接待/轉接）</strong></p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="link" class="w-5 h-5 text-indigo-300 mt-1"></i>
+                            <p class="text-sm text-gray-300">支援渠道：目前僅支援 <strong>LINE 官方帳號</strong></p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="life-buoy" class="w-5 h-5 text-indigo-300 mt-1"></i>
+                            <p class="text-sm text-gray-300">支援方式：封測群／LINE 一對一（以能做到的程度為主）</p>
+                        </div>
+                        <div class="text-xs text-gray-500 border-t border-white/10 pt-4">
+                            啟用日定義：「完成 LINE 串接並開始接收訊息的那天，算啟用日。」
+                        </div>
+                        <ul class="text-xs text-gray-500 space-y-1">
+                            <li>每日上限以「自動回覆則數」計算（不含你在後台調整設定）</li>
+                            <li>封測為限量共創計畫，非正式 SLA 服務</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4) 回饋節奏與獎勵 -->
+        <section class="py-20 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">封測的交換條件很簡單：你給真實回饋，我給你更長試用與早鳥權益。</h2>
+                <p class="text-gray-400 mb-10">完成回饋者獎勵</p>
+                <div class="grid gap-4 sm:grid-cols-3">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">🎁 +7 天延長試用</p>
+                        <p class="text-xs text-gray-400 mt-2">完成 D14 回饋即符合</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">🎁 優先加入 waitlist</p>
+                        <p class="text-xs text-gray-400 mt-2">公測第一批通知</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">🎁 公測贈送 KeFu 點數</p>
+                        <p class="text-xs text-gray-400 mt-2">協助你更快擴編虛擬團隊</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5) 你適合加入嗎 -->
+        <section id="fit" class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">我們正在找這樣的店家，希望名額留給願意共創的人</h2>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-green-300 mb-4">適合 ✅</h3>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>你每天會收到一些重複問題</li>
+                            <li>你願意花 <strong>5–10 分鐘</strong>完成設定</li>
+                            <li>你想解放時間，讓一人公司可以真的像公司一樣運作</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-red-300 mb-4">不適合 ❌</h3>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>期待完全零設定</li>
+                            <li>需要非常複雜的客製流</li>
+                            <li>不能接受每日上限／封測需要回饋</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6) 3 步驟加入封測 -->
+        <section class="py-20 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">加入方式（照著做就好）</h2>
+                <ol class="text-left grid gap-4 sm:grid-cols-3 mt-8">
+                    <li class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">1. 加 LINE → 輸入關鍵字「試用」</p>
+                    </li>
+                    <li class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">2. 填寫商家基本資料（1–3 分鐘）</p>
+                    </li>
+                    <li class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm text-gray-200 font-semibold">3. 通過後拿到封測連結 → 完成串接即啟用</p>
+                    </li>
+                </ol>
+                <p class="text-xs text-gray-400 mt-6">名額有限，送出表單後我們會依序審核（以「真實營運 + 願意回饋」優先）。</p>
+                <div class="mt-8">
+                    <a href="https://line.me/R/ti/p/@304dgdjo" target="_blank" rel="noreferrer"
+                        class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] inline-flex items-center gap-2">
+                        <span>加 LINE 申請封測（限量 5 名）</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7) 5 分鐘設定你的虛擬公司 -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">5 分鐘上線，你的虛擬團隊就能開始接待</h2>
+                </div>
+                <div class="grid gap-6 md:grid-cols-4">
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm font-semibold text-gray-200">Step 1｜填寫公司設定</p>
+                        <p class="text-xs text-gray-400 mt-2">輸入品牌介紹、FAQ 與服務範圍。</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm font-semibold text-gray-200">Step 2｜AI 自動編制團隊</p>
+                        <p class="text-xs text-gray-400 mt-2">建立「訊息接待」與「人機協作轉接」角色。</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm font-semibold text-gray-200">Step 3｜一鍵串接 LINE 官方帳號</p>
+                        <p class="text-xs text-gray-400 mt-2">訊息導入虛擬團隊開始接住重複問題。</p>
+                    </div>
+                    <div class="bg-brand-card border border-brand-border rounded-2xl p-6">
+                        <p class="text-sm font-semibold text-gray-200">Step 4｜即刻開始營運</p>
+                        <p class="text-xs text-gray-400 mt-2">需要你出手時才轉接，並帶上理由。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8) 虛擬公司概念解釋 -->
+        <section class="py-20 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">這不是聊天機器人，是「虛擬公司系統」。</h2>
+                </div>
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-8 md:p-10 space-y-4">
+                    <p class="text-sm text-gray-300">KeFu 把營運工作拆成不同 AI 職位，讓每個職位各司其職。封測版先開放 <strong>「訊息接待部門」</strong> 與 <strong>「人機協作轉接」</strong>，未來會擴編更多職位（行銷、銷售、資料分析…）。</p>
+                    <div class="grid gap-4 md:grid-cols-3 text-xs text-gray-400">
+                        <div class="bg-white/5 rounded-xl p-4">你是 CEO。虛擬總監負責分派任務。</div>
+                        <div class="bg-white/5 rounded-xl p-4">接待部門處理重複訊息，必要時才轉接給你。</div>
+                        <div class="bg-white/5 rounded-xl p-4">轉接會附上「理由」，讓你更快做判斷。</div>
+                    </div>
+                    <p class="text-xs text-gray-500">📌 持續擴編中：下一批職位會依封測回饋決定優先順序。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
