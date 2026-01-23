@@ -14,36 +14,15 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS (快速排版與響應式設計) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/site.css">
 
-    <!-- Lucide Icons (輕量級圖標) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- 自定義配置 -->
+    <script src="assets/tailwind-base.js"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
+        window.setTailwindConfig({
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Inter"', '"Noto Sans TC"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F19',     // 極深藍背景
-                            card: '#111827',     // 卡片背景
-                            border: '#1F2937',   // 邊框
-                            primary: '#6366F1',  // 主色 (Indigo)
-                            accent: '#8B5CF6',   // 強調色 (Purple)
-                            glow: '#3B82F6',     // 發光色 (Blue)
-                            danger: '#EF4444',   // 警告色
-                        }
-                    },
                     backgroundImage: {
                         'hero-gradient': 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 50%)',
-                        'card-gradient': 'linear-gradient(145deg, rgba(17, 24, 39, 1) 0%, rgba(17, 24, 39, 0.6) 100%)',
-                        'button-gradient': 'linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%)',
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -53,48 +32,18 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
+                        },
+                    },
+                },
+            },
+        });
     </script>
 
-    <style>
-        /* 全局樣式微調 */
-        body {
-            background-color: #0B0F19;
-            color: #F3F4F6;
-            -webkit-font-smoothing: antialiased;
-        }
+    <!-- Tailwind CSS (快速排版與響應式設計) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        /* 網格背景特效 */
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
-        /* 光暈效果 */
-        .glow-text {
-            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-        }
-
-        /* 輸入框聚焦時的光暈 */
-        .input-glow:focus {
-            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
-        }
-
-        /* FAQ 動畫優化 */
-        details>summary {
-            list-style: none;
-        }
-
-        details>summary::-webkit-details-marker {
-            display: none;
-        }
-    </style>
+    <!-- Lucide Icons (輕量級圖標) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body class="relative overflow-x-hidden">
@@ -663,10 +612,8 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="assets/site.js"></script>
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
         // Form Handling Logic (Simulation)
         const forms = document.querySelectorAll('.waitlist-form');
 
