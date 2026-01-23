@@ -564,52 +564,33 @@
                     <p class="text-gray-400">真實使用者分享，持續滑動的口碑牆。</p>
                 </div>
 
-                <div class="feedback-marquee">
-                    <div class="feedback-track">
-                        <div class="feedback-group">
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">新芽咖啡</h3>
-                                <p class="mt-3 text-sm text-gray-400">客人問題 24/7 都能回覆，訂單諮詢量大增。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">拾光甜點</h3>
-                                <p class="mt-3 text-sm text-gray-400">導入後每週節省 6 小時客服時間，回覆也更一致。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">零界健身</h3>
-                                <p class="mt-3 text-sm text-gray-400">會員預約流程更順，轉接真人的比例也下降了。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">好好選物</h3>
-                                <p class="mt-3 text-sm text-gray-400">FAQ 自動整理超省心，新客下單率提升。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">海嵐旅宿</h3>
-                                <p class="mt-3 text-sm text-gray-400">深夜詢問不再漏接，住客滿意度直線上升。</p>
-                            </article>
-                        </div>
-                        <div class="feedback-group" aria-hidden="true">
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">新芽咖啡</h3>
-                                <p class="mt-3 text-sm text-gray-400">客人問題 24/7 都能回覆，訂單諮詢量大增。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">拾光甜點</h3>
-                                <p class="mt-3 text-sm text-gray-400">導入後每週節省 6 小時客服時間，回覆也更一致。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">零界健身</h3>
-                                <p class="mt-3 text-sm text-gray-400">會員預約流程更順，轉接真人的比例也下降了。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">好好選物</h3>
-                                <p class="mt-3 text-sm text-gray-400">FAQ 自動整理超省心，新客下單率提升。</p>
-                            </article>
-                            <article class="feedback-card">
-                                <h3 class="text-lg font-bold text-white">海嵐旅宿</h3>
-                                <p class="mt-3 text-sm text-gray-400">深夜詢問不再漏接，住客滿意度直線上升。</p>
-                            </article>
-                        </div>
+                <div class="feedback-carousel">
+                    <div data-feedback-carousel class="feedback-scroll hide-scrollbar" tabindex="0" aria-label="客戶回饋輪播">
+                        <article class="feedback-card">
+                            <h3 class="text-lg font-bold">新芽咖啡</h3>
+                            <div class="mt-3 h-px w-14 bg-[#c6b3a0]"></div>
+                            <p class="mt-4 text-sm">客人問題 24/7 都能回覆，訂單諮詢量大增。</p>
+                        </article>
+                        <article class="feedback-card">
+                            <h3 class="text-lg font-bold">拾光甜點</h3>
+                            <div class="mt-3 h-px w-14 bg-[#c6b3a0]"></div>
+                            <p class="mt-4 text-sm">導入後每週節省 6 小時客服時間，回覆也更一致。</p>
+                        </article>
+                        <article class="feedback-card">
+                            <h3 class="text-lg font-bold">零界健身</h3>
+                            <div class="mt-3 h-px w-14 bg-[#c6b3a0]"></div>
+                            <p class="mt-4 text-sm">會員預約流程更順，轉接真人的比例也下降了。</p>
+                        </article>
+                        <article class="feedback-card">
+                            <h3 class="text-lg font-bold">好好選物</h3>
+                            <div class="mt-3 h-px w-14 bg-[#c6b3a0]"></div>
+                            <p class="mt-4 text-sm">FAQ 自動整理超省心，新客下單率提升。</p>
+                        </article>
+                        <article class="feedback-card">
+                            <h3 class="text-lg font-bold">海嵐旅宿</h3>
+                            <div class="mt-3 h-px w-14 bg-[#c6b3a0]"></div>
+                            <p class="mt-4 text-sm">深夜詢問不再漏接，住客滿意度直線上升。</p>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -1111,6 +1092,43 @@
         window.addEventListener('scroll', requestProgressUpdate, { passive: true });
         window.addEventListener('resize', requestProgressUpdate);
         updateScrollProgress();
+
+        const feedbackCarousel = document.querySelector('[data-feedback-carousel]');
+        if (feedbackCarousel) {
+            let isPaused = false;
+            let resumeTimeout;
+            let animationFrame;
+            const scrollSpeed = 0.4;
+            const idleDelay = 3200;
+
+            const step = () => {
+                if (!isPaused) {
+                    feedbackCarousel.scrollLeft += scrollSpeed;
+                    if (feedbackCarousel.scrollLeft + feedbackCarousel.clientWidth >= feedbackCarousel.scrollWidth - 2) {
+                        feedbackCarousel.scrollLeft = 0;
+                    }
+                }
+                animationFrame = window.requestAnimationFrame(step);
+            };
+
+            const pauseAutoScroll = () => {
+                isPaused = true;
+                window.clearTimeout(resumeTimeout);
+                resumeTimeout = window.setTimeout(() => {
+                    isPaused = false;
+                }, idleDelay);
+            };
+
+            feedbackCarousel.addEventListener('pointerdown', pauseAutoScroll);
+            feedbackCarousel.addEventListener('touchstart', pauseAutoScroll, { passive: true });
+            feedbackCarousel.addEventListener('wheel', pauseAutoScroll, { passive: true });
+            feedbackCarousel.addEventListener('keydown', pauseAutoScroll);
+
+            step();
+            window.addEventListener('beforeunload', () => {
+                if (animationFrame) window.cancelAnimationFrame(animationFrame);
+            });
+        }
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {

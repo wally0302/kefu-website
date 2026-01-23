@@ -63,36 +63,40 @@ details > summary::-webkit-details-marker {
     transform: translateY(0);
 }
 
-.feedback-marquee {
-    overflow: hidden;
+.feedback-carousel {
     position: relative;
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.feedback-track {
-    display: flex;
-    width: max-content;
-    animation: feedback-scroll 32s linear infinite;
-}
-
-.feedback-group {
+.feedback-scroll {
     display: flex;
     gap: 1.5rem;
-    padding-right: 1.5rem;
-    width: max-content;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 1.5rem 1.5rem;
+    margin: 0 -1.5rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 
 .feedback-card {
-    width: 260px;
-    background: rgba(17, 24, 39, 0.7);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.45);
+    flex: 0 0 auto;
+    width: min(320px, 78vw);
+    scroll-snap-align: start;
+    background: #f3ede6;
+    border: 1px solid rgba(148, 108, 70, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 35px rgba(45, 32, 20, 0.18);
+    color: #3c2d21;
 }
 
-.feedback-marquee:hover .feedback-track {
-    animation-play-state: paused;
+.feedback-card h3 {
+    color: #6b4a2c;
+}
+
+.feedback-card p {
+    color: #3c2d21;
+    line-height: 1.7;
 }
 
 .hide-scrollbar {
@@ -104,24 +108,17 @@ details > summary::-webkit-details-marker {
     display: none;
 }
 
-@keyframes feedback-scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .scroll-reveal {
         opacity: 1;
         transform: none;
         transition: none;
     }
+}
 
-    .feedback-track {
-        animation: none;
-        transform: none;
+@media (min-width: 768px) {
+    .feedback-scroll {
+        padding: 0 0 1.5rem;
+        margin: 0;
     }
 }
