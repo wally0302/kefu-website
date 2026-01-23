@@ -24,6 +24,17 @@ body {
     box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2);
 }
 
+.hover-reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.group:hover .hover-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 details > summary {
     list-style: none;
 }
