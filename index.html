@@ -160,10 +160,22 @@
                 <p class="text-gray-400">當流量紅利來襲，單打獨鬥只會讓你陷入<span class="text-red-400 font-bold">隱形虧損</span>。</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="relative">
+                <button type="button" data-pain-prev
+                    class="md:hidden absolute left-0 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-brand-card/80 p-2 text-gray-200 shadow-lg shadow-black/30 backdrop-blur transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
+                    <span class="sr-only">向左滑動</span>
+                    <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                </button>
+                <button type="button" data-pain-next
+                    class="md:hidden absolute right-0 top-1/2 z-20 translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-brand-card/80 p-2 text-gray-200 shadow-lg shadow-black/30 backdrop-blur transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
+                    <span class="sr-only">向右滑動</span>
+                    <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </button>
+                <div data-pain-carousel
+                    class="hide-scrollbar flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible">
                 <!-- Card 1 -->
                 <div
-                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    class="group min-w-[260px] flex-shrink-0 snap-start bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300 md:min-w-0">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="hourglass" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -178,7 +190,7 @@
 
                 <!-- Card 2 -->
                 <div
-                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    class="group min-w-[260px] flex-shrink-0 snap-start bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300 md:min-w-0">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="user-x" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -193,7 +205,7 @@
 
                 <!-- Card 3 -->
                 <div
-                    class="group bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300">
+                    class="group min-w-[260px] flex-shrink-0 snap-start bg-brand-card border border-brand-border p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300 md:min-w-0">
                     <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i data-lucide="trending-up" class="text-indigo-400 w-6 h-6"></i>
                     </div>
@@ -204,6 +216,7 @@
                     <p class="hover-reveal mt-4 text-xs text-gray-500 leading-relaxed">
                         讓 AI 幫你守住夜間流量，隔天醒來也能追得上市場節奏。
                     </p>
+                </div>
                 </div>
             </div>
         </div>
@@ -252,10 +265,18 @@
 
                     <!-- Speed Setup Note -->
                     <div
-                        class="inline-flex items-center gap-2 bg-green-900/20 border border-green-500/30 rounded-lg px-4 py-2 mb-8 animate-pulse-slow">
+                        class="inline-flex flex-wrap items-center gap-2 bg-green-900/20 border border-green-500/30 rounded-lg px-4 py-2 mb-4">
                         <i data-lucide="timer" class="w-4 h-4 text-green-400"></i>
-                        <span class="text-green-400 text-sm font-bold">極速部署：</span>
-                        <span class="text-gray-300 text-sm">只需 5 分鐘，即可完成團隊組建與職務分配。</span>
+                        <span class="text-green-400 text-sm font-bold">穩健部署：</span>
+                        <span class="text-gray-300 text-sm">建議預留 20-30 分鐘，完成團隊規劃與測試。</span>
+                    </div>
+                    <div class="mb-8 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300">
+                        <p class="text-xs uppercase tracking-[0.2em] text-indigo-300 mb-2">導入節奏建議</p>
+                        <ol class="space-y-1 text-sm text-gray-300">
+                            <li>1) 盤點 FAQ 與客戶旅程（約 10 分鐘）</li>
+                            <li>2) 設定角色職責與語氣（約 8-10 分鐘）</li>
+                            <li>3) 內部測試與微調回覆（約 5-10 分鐘）</li>
+                        </ol>
                     </div>
 
                     <ul class="space-y-6">
@@ -397,7 +418,7 @@
     <!-- How it Works -->
     <section class="relative z-10 py-20 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-14 scroll-reveal">
+            <div class="text-center mb-14">
                 <div class="text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-3">How it works</div>
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">3 分鐘了解你的虛擬公司如何上線</h2>
                 <p class="text-gray-400">從設定到營運，Kefu 幫你把流程拆成清楚的時間軸步驟。</p>
@@ -406,7 +427,7 @@
             <div class="relative max-w-3xl mx-auto">
                 <div class="absolute left-5 top-0 h-full w-px bg-indigo-500/30"></div>
                 <div class="space-y-8">
-                    <div class="relative pl-16 group scroll-reveal" style="transition-delay: 0.05s;">
+                    <div class="relative pl-16 group">
                         <div
                             class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
                             01
@@ -423,7 +444,7 @@
                         </div>
                     </div>
 
-                    <div class="relative pl-16 group scroll-reveal" style="transition-delay: 0.15s;">
+                    <div class="relative pl-16 group">
                         <div
                             class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
                             02
@@ -440,7 +461,7 @@
                         </div>
                     </div>
 
-                    <div class="relative pl-16 group scroll-reveal" style="transition-delay: 0.25s;">
+                    <div class="relative pl-16 group">
                         <div
                             class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
                             03
@@ -457,7 +478,7 @@
                         </div>
                     </div>
 
-                    <div class="relative pl-16 group scroll-reveal" style="transition-delay: 0.35s;">
+                    <div class="relative pl-16 group">
                         <div
                             class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
                             04
