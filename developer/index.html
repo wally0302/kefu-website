@@ -134,13 +134,16 @@
 
         <!-- Waitlist Form (Hero) -->
         <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 waitlist-form">
-            <input type="email" placeholder="輸入 Gmail 立即止損" required
+            <label class="sr-only" for="dev-waitlist-email">Email</label>
+            <input type="email" id="dev-waitlist-email" name="email" autocomplete="email"
+                placeholder="輸入 Gmail 立即止損" required
                 class="flex-1 bg-brand-card/80 backdrop-blur-sm border border-brand-border text-white placeholder-gray-500 px-5 py-3 rounded-xl focus:outline-none focus:border-indigo-500 input-glow transition-all">
             <button type="submit"
                 class="bg-button-gradient hover:opacity-90 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
                 <span>搶救我的時間</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
+            <p class="sr-only" role="status" aria-live="polite" data-waitlist-status></p>
         </form>
         <p class="mt-4 text-xs text-red-400 flex justify-center items-center gap-1">
             <i data-lucide="flame" class="w-3 h-3"></i> 本月 Early Access 僅剩最後 12 席，錯過再等三個月。
@@ -401,6 +404,7 @@
                 const emailInput = this.querySelector('input[type="email"]');
                 const button = this.querySelector('button');
                 const originalText = button.innerHTML;
+                const status = this.querySelector('[data-waitlist-status]');
 
                 // Disable form
                 emailInput.disabled = true;
@@ -415,8 +419,9 @@
                     button.innerHTML = '<i data-lucide="check" class="w-5 h-5 mr-2"></i> 已保留席位';
                     lucide.createIcons();
 
-                    // Optional: Show success message/modal
-                    alert(`太棒了！我們已將 ${emailInput.value} 鎖定在優先名單中。請留意收信，別錯過早鳥權益。`);
+                    if (status) {
+                        status.textContent = `太棒了！我們已將 ${emailInput.value} 鎖定在優先名單中。請留意收信，別錯過早鳥權益。`;
+                    }
                 }, 1500);
             });
         });
