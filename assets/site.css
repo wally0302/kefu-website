@@ -82,6 +82,11 @@ details > summary::-webkit-details-marker {
     animation: target-highlight 1.2s ease-out;
 }
 
+.no-target-highlight:target {
+    outline: none;
+    box-shadow: none;
+}
+
 @keyframes target-highlight {
     0% {
         box-shadow: 0 0 0 8px rgba(129, 140, 248, 0.35);
