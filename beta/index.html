@@ -88,6 +88,20 @@
                 animation: none;
             }
         }
+
+        [data-org-chart] [data-role-id] {
+            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        [data-org-chart].is-modal-open [data-role-id] {
+            opacity: 0.4;
+        }
+
+        [data-org-chart].is-modal-open [data-role-id].is-active {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.6), 0 12px 24px rgba(15, 23, 42, 0.35);
+        }
     </style>
 </head>
 
@@ -287,27 +301,68 @@
         </section>
 
         <!-- Org Chart Modal -->
-        <div id="org-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/75 backdrop-blur-sm">
+        <div id="org-modal"
+            class="fixed inset-0 z-[70] hidden items-end sm:items-center justify-center bg-black/75 backdrop-blur-sm">
             <div data-org-modal-overlay class="absolute inset-0 bg-black/80"></div>
             <div
-                class="relative mx-4 w-full max-w-md rounded-2xl border border-brand-border/70 bg-brand-card p-6 shadow-2xl">
+                class="relative w-full sm:max-w-2xl rounded-t-3xl rounded-b-none sm:rounded-2xl border border-brand-border/70 bg-brand-card shadow-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col">
                 <button type="button" data-org-modal-close
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                     <span class="sr-only">關閉視窗</span>
                     <i data-lucide="x" class="h-4 w-4"></i>
                 </button>
-                <div class="flex items-center gap-3">
+                <div class="flex items-start gap-4 border-b border-white/10 px-6 py-5 pr-14">
                     <div data-org-modal-icon
                         class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-indigo-200">
                     </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Kefu Org</p>
-                        <h3 data-org-modal-title class="text-lg font-bold text-white">角色介紹</h3>
+                    <div class="min-w-0">
+                        <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Role Detail</p>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h3 data-org-modal-title-zh class="text-xl font-bold text-white">角色介紹</h3>
+                            <span data-org-modal-status
+                                class="inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold"></span>
+                        </div>
+                        <p data-org-modal-title-en class="text-sm text-gray-400">Role</p>
                     </div>
                 </div>
-                <p data-org-modal-description class="mt-4 text-sm leading-relaxed text-gray-300">
-                    這裡會顯示角色的職責說明。
-                </p>
+                <div class="flex-1 overflow-y-auto px-6 pb-6 pt-4 space-y-6">
+                    <p data-org-modal-summary class="text-sm leading-relaxed text-gray-300">
+                        這裡會顯示角色的職責說明。
+                    </p>
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-semibold text-white">你會得到什麼</h4>
+                        <ul data-org-modal-benefits class="space-y-2 text-sm text-gray-300 list-disc list-inside">
+                        </ul>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-semibold text-white">什麼時候會找你</h4>
+                        <ul data-org-modal-triggers class="space-y-2 text-sm text-gray-300 list-disc list-inside">
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-semibold text-white">下一步</h4>
+                        <div class="flex flex-col gap-3">
+                            <a data-org-modal-cta-primary href="#" target="_blank" rel="noreferrer"
+                                class="bg-button-gradient hover:opacity-90 text-white font-semibold px-5 py-3 rounded-xl shadow-xl shadow-indigo-500/30 transition-all transform hover:scale-[1.01] flex items-center justify-center gap-2 ring-2 ring-indigo-200/40 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200/60">
+                                <span>加入 LINE｜申請 CEO 合夥人封測（限量 5 家）</span>
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            </a>
+                            <div class="flex flex-col sm:flex-row gap-3 text-sm">
+                                <a data-org-modal-cta-secondary-1 href="#beta-rules"
+                                    class="flex-1 inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-gray-200 hover:text-white hover:border-indigo-300 transition">
+                                    查看封測規則
+                                </a>
+                                <a data-org-modal-cta-secondary-2 href="#examples"
+                                    class="flex-1 inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-gray-200 hover:text-white hover:border-indigo-300 transition">
+                                    查看範例對話
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-org-modal-footer class="text-xs text-gray-400 border-t border-white/10 pt-4">
+                        持續擴編中：每月新增不同職位員工
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -336,38 +391,79 @@
                             <span class="text-gray-300 text-sm">建議預留 20-30 分鐘，完成團隊規劃與測試。</span>
                         </div>
 
-                        <ul class="space-y-6">
-                            <li class="scroll-reveal flex gap-4" data-reveal-delay="220">
-                                <div
-                                    class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                    <span class="text-xs text-indigo-400 font-bold">COO</span>
+                        <div class="mt-6 space-y-4" data-org-roster>
+                            <div data-role-button data-role-id="root_agent" role="button" tabindex="0"
+                                class="scroll-reveal rounded-2xl border border-indigo-500/30 bg-brand-card/80 p-5 shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:border-indigo-400/70 cursor-pointer">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div class="flex items-start gap-3">
+                                        <span
+                                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-200">
+                                            <i data-lucide="cpu" class="h-5 w-5"></i>
+                                        </span>
+                                        <div>
+                                            <div class="text-lg font-bold text-white">AI 營運總監</div>
+                                            <div class="text-xs text-gray-400">Root Agent</div>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">已上線 v1</span>
                                 </div>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">營運總監 (Root Agent)</h4>
-                                    <p class="text-gray-500 text-sm mt-1">你的決策大腦。負責拆解用戶意圖，指派任務給下屬，只在必要時向你匯報。</p>
+                                <p class="mt-3 text-sm text-gray-300">分派任務、整合策略，追蹤服務品質與效率。</p>
+                                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">任務統籌</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">KPI 追蹤</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">例外判斷</span>
                                 </div>
-                            </li>
-                            <li class="scroll-reveal flex gap-4" data-reveal-delay="260">
-                                <div
-                                    class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                    <span class="text-xs text-indigo-400 font-bold">CSO</span>
+                            </div>
+                            <div data-role-button data-role-id="faq_agent" role="button" tabindex="0"
+                                class="scroll-reveal rounded-2xl border border-emerald-500/30 bg-brand-card/80 p-5 shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:border-emerald-400/70 cursor-pointer"
+                                data-reveal-delay="80">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div class="flex items-start gap-3">
+                                        <span
+                                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-200">
+                                            <i data-lucide="message-circle" class="h-5 w-5"></i>
+                                        </span>
+                                        <div>
+                                            <div class="text-lg font-bold text-white">客服部</div>
+                                            <div class="text-xs text-gray-400">FAQ Agent</div>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">已上線 v1</span>
                                 </div>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">金牌客服 (FAQ Agent)</h4>
-                                    <p class="text-gray-500 text-sm mt-1">熟讀你所有的產品手冊。24/7 秒回用戶疑問，服務態度永遠 100 分。</p>
+                                <p class="mt-3 text-sm text-gray-300">24/7 接起重複問題，讓你不用一直回訊息。</p>
+                                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">24/7 回覆</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">FAQ 整理</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">流程問答</span>
                                 </div>
-                            </li>
-                            <li class="scroll-reveal flex gap-4" data-reveal-delay="300">
-                                <div
-                                    class="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/40">
-                                    <span class="text-xs text-indigo-400 font-bold">ESC</span>
+                            </div>
+                            <div data-role-button data-role-id="handover_agent" role="button" tabindex="0"
+                                class="scroll-reveal rounded-2xl border border-amber-500/30 bg-brand-card/80 p-5 shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:border-amber-400/70 cursor-pointer"
+                                data-reveal-delay="140">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div class="flex items-start gap-3">
+                                        <span
+                                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-200">
+                                            <i data-lucide="users" class="h-5 w-5"></i>
+                                        </span>
+                                        <div>
+                                            <div class="text-lg font-bold text-white">人機協作</div>
+                                            <div class="text-xs text-gray-400">Handover Agent</div>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-500/15 px-2 py-0.5 text-[11px] font-semibold text-amber-200">Beta</span>
                                 </div>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">轉接專員 (Handover Agent)</h4>
-                                    <p class="text-gray-500 text-sm mt-1">情緒與情境感知專家。當偵測到複雜需求或特定關鍵字時，自動將對話無縫轉接給真人客服。</p>
+                                <p class="mt-3 text-sm text-gray-300">判斷例外與轉接，讓需要你出面的事可追蹤。</p>
+                                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">例外偵測</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">交接摘要</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">轉接判斷</span>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -388,17 +484,17 @@
                         <div class="relative h-full flex flex-col items-center pb-6">
 
                             <!-- Level 1: CEO -->
-                            <div data-org-node="ceo" role="button" tabindex="0"
+                            <div
                                 class="z-10 w-32 h-12 border border-dashed border-gray-600 rounded-lg flex items-center justify-center bg-brand-card shrink-0 -mt-2 cursor-pointer transition-colors hover:border-indigo-400/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                                 <span class="text-xs text-gray-500">YOU (CEO)</span>
                             </div>
 
                             <!-- Connector 1: Flexible Line -->
-                            <div data-org-node="connector-top"
+                            <div
                                 class="w-px bg-gray-600 flex-1 min-h-[32px] border-l border-dashed border-gray-600 opacity-50"></div>
 
                             <!-- Level 2: COO (Root Agent) -->
-                            <div data-org-node="root" role="button" tabindex="0"
+                            <div data-role-button data-role-id="root_agent" role="button" tabindex="0"
                                 class="z-10 w-48 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow shadow-lg shadow-indigo-500/20 shrink-0 cursor-pointer transition-colors hover:border-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="cpu" class="text-indigo-300 w-5 h-5"></i>
@@ -408,17 +504,17 @@
                             </div>
 
                             <!-- Connector 2: Vertical to Branch -->
-                            <div data-org-node="connector-mid" class="w-px bg-indigo-500 h-8 shrink-0"></div>
+                            <div class="w-px bg-indigo-500 h-8 shrink-0"></div>
 
                             <!-- Connector 3: The Branch (Bracket) -->
-                            <div data-org-node="connector-branch"
+                            <div
                                 class="w-1/2 h-6 border-t-2 border-x-2 border-indigo-500 rounded-t-sm relative shrink-0 z-0">
                             </div>
 
                             <!-- Level 3: Sub Agents (Grid) -->
                             <div class="w-full grid grid-cols-2 gap-8 px-4 mt-[-4px] shrink-0">
                                 <!-- Left: FAQ Agent -->
-                                <div data-org-node="faq" role="button" tabindex="0"
+                                <div data-role-button data-role-id="faq_agent" role="button" tabindex="0"
                                     class="bg-emerald-950 border border-emerald-800/70 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-green-500 transition-colors group z-20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400/80">
                                     <div
                                         class="w-10 h-10 rounded-full bg-green-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -431,7 +527,7 @@
                                 </div>
 
                                 <!-- Right: Handover Agent -->
-                                <div data-org-node="handover" role="button" tabindex="0"
+                                <div data-role-button data-role-id="handover_agent" role="button" tabindex="0"
                                     class="bg-amber-950 border border-amber-800/70 rounded-xl p-4 shadow-lg flex flex-col items-center gap-3 hover:border-orange-500 transition-colors group z-20 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400/80">
                                     <div
                                         class="w-10 h-10 rounded-full bg-orange-900/30 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -444,15 +540,31 @@
                                 </div>
                             </div>
 
-                            <div data-org-node="expansion"
-                                class="mt-6 w-full flex items-center gap-3 text-sm text-gray-400 bg-brand-card/50 p-4 rounded-xl border border-dashed border-gray-700">
-                                <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600">
-                                    <i data-lucide="plus" class="w-4 h-4 text-indigo-400"></i>
+                            <div class="mt-8 w-full">
+                                <p class="text-xs uppercase tracking-[0.3em] text-gray-500 text-center">Coming Soon</p>
+                                <div class="mt-4 grid gap-3 sm:grid-cols-3">
+                                    <div data-role-button data-role-id="marketing_agent" role="button" tabindex="0"
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                        <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
+                                        <div class="text-sm font-semibold text-gray-300">行銷專員</div>
+                                        <div class="text-xs text-gray-500">Marketing Agent</div>
+                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                    </div>
+                                    <div data-role-button data-role-id="order_agent" role="button" tabindex="0"
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                        <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
+                                        <div class="text-sm font-semibold text-gray-300">訂單助理</div>
+                                        <div class="text-xs text-gray-500">Order Agent</div>
+                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                    </div>
+                                    <div data-role-button data-role-id="retention_coach" role="button" tabindex="0"
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                        <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
+                                        <div class="text-sm font-semibold text-gray-300">回購教練</div>
+                                        <div class="text-xs text-gray-500">Retention Coach</div>
+                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                    </div>
                                 </div>
-                                <p>
-                                    <span class="text-white font-medium">持續擴編中：</span>
-                                    目前先提供 <span class="text-indigo-300">客服部與人機協作</span> 兩位虛擬員工，後續會逐步擴增更多職位。
-                                </p>
                             </div>
 
                         </div>
@@ -460,6 +572,14 @@
 
                 </div>
             </div>
+        </section>
+
+        <section id="beta-rules" class="sr-only">
+            <h2>封測規則</h2>
+        </section>
+
+        <section id="examples" class="sr-only">
+            <h2>範例對話</h2>
         </section>
 
         <!-- 2) 5 分鐘設定你的虛擬公司 -->
@@ -1014,47 +1134,171 @@
 
         const orgChart = document.querySelector('[data-org-chart]');
         const orgModal = document.querySelector('#org-modal');
-        const orgModalTitle = document.querySelector('[data-org-modal-title]');
-        const orgModalDescription = document.querySelector('[data-org-modal-description]');
+        const orgModalTitleZh = document.querySelector('[data-org-modal-title-zh]');
+        const orgModalTitleEn = document.querySelector('[data-org-modal-title-en]');
+        const orgModalStatus = document.querySelector('[data-org-modal-status]');
+        const orgModalSummary = document.querySelector('[data-org-modal-summary]');
+        const orgModalBenefits = document.querySelector('[data-org-modal-benefits]');
+        const orgModalTriggers = document.querySelector('[data-org-modal-triggers]');
+        const orgModalCtaPrimary = document.querySelector('[data-org-modal-cta-primary]');
+        const orgModalCtaSecondary1 = document.querySelector('[data-org-modal-cta-secondary-1]');
+        const orgModalCtaSecondary2 = document.querySelector('[data-org-modal-cta-secondary-2]');
+        const orgModalFooter = document.querySelector('[data-org-modal-footer]');
         const orgModalIcon = document.querySelector('[data-org-modal-icon]');
         const orgModalOverlay = document.querySelector('[data-org-modal-overlay]');
         const orgModalClose = document.querySelector('[data-org-modal-close]');
 
-        const orgNodeCopy = {
-            ceo: {
-                title: 'YOU (CEO)',
-                description: '你是虛擬公司的決策者，決定營運方向、目標與資源分配。',
-                icon: 'user',
-            },
-            root: {
-                title: 'AI 營運總監',
-                description: '負責統籌 AI 團隊任務，整合客服策略並確保服務品質與效率。',
+        const lineLink = 'https://line.me/R/ti/p/@304dgdjo';
+
+        const orgRoles = {
+            root_agent: {
+                title_zh: 'AI 營運總監',
+                title_en: 'Root Agent',
+                status: '已上線 v1',
+                summary: '你的虛擬公司主管：分派任務、整合策略，追蹤服務品質與效率。',
+                benefits: [
+                    '把聊天紀錄整理成待辦／工單',
+                    '判斷例外並提醒你介入決策',
+                    '每週彙整 KPI 與改善建議',
+                ],
+                triggers: [
+                    '退款／客訴／高風險情境需你確認',
+                    '無法回答或超出知識範圍',
+                    '偵測到異常波動（暴增／轉換下滑）',
+                ],
                 icon: 'cpu',
             },
-            faq: {
-                title: '客服部 (FAQ Agent)',
-                description: '處理 90% 的常見問題，提供即時、準確的自助回覆體驗。',
+            faq_agent: {
+                title_zh: '客服部',
+                title_en: 'FAQ Agent',
+                status: '已上線 v1',
+                summary: '你的第一位虛擬員工：24/7 接起重複問題，讓你不用一直回訊息。',
+                benefits: [
+                    '24/7 回答常見問題與流程詢問',
+                    '對話自動整理成 FAQ／熱門問題',
+                    '依你的回饋每週更新回答',
+                ],
+                triggers: [
+                    '需要客製報價或特殊承諾',
+                    '客人情緒升高或疑似客訴',
+                    '問題超出 FAQ／資料不足',
+                ],
                 icon: 'message-circle',
             },
-            handover: {
-                title: '人機協作 (Handover Agent)',
-                description: '針對需要判斷或情緒處理的案例，迅速轉接到人工團隊。',
+            handover_agent: {
+                title_zh: '人機協作',
+                title_en: 'Handover Agent',
+                status: 'Beta',
+                summary: '你的例外與轉接專員：先判斷，再把需要你出面的事變成可追蹤事件。',
+                benefits: [
+                    '偵測例外情境，建議是否需要轉接',
+                    '把轉接變成可追蹤工單／待辦',
+                    '自動整理交接摘要，讓你秒懂脈絡',
+                ],
+                triggers: [
+                    '退款／退換／爭議等高風險案件',
+                    '需要真人確認條件或承諾',
+                    '客人反覆追問、情緒波動明顯',
+                ],
                 icon: 'users',
+            },
+            marketing_agent: {
+                title_zh: '行銷專員',
+                title_en: 'Marketing Agent',
+                status: '下月解鎖',
+                summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
+                benefits: [
+                    '每月新增不同職位，逐步擴編成你的公司',
+                    '依聊天紀錄與回饋持續迭代',
+                    '優先解鎖新職位的體驗資格',
+                ],
+                triggers: [
+                    '需要你決定下一個最該擴編的職位',
+                    '需要你提供流程/素材（商品、規則、話術）',
+                    '每週迭代回報與建議確認',
+                ],
+                icon: 'megaphone',
+            },
+            order_agent: {
+                title_zh: '訂單助理',
+                title_en: 'Order Agent',
+                status: '下月解鎖',
+                summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
+                benefits: [
+                    '每月新增不同職位，逐步擴編成你的公司',
+                    '依聊天紀錄與回饋持續迭代',
+                    '優先解鎖新職位的體驗資格',
+                ],
+                triggers: [
+                    '需要你決定下一個最該擴編的職位',
+                    '需要你提供流程/素材（商品、規則、話術）',
+                    '每週迭代回報與建議確認',
+                ],
+                icon: 'clipboard-list',
+            },
+            retention_coach: {
+                title_zh: '回購教練',
+                title_en: 'Retention Coach',
+                status: '下月解鎖',
+                summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
+                benefits: [
+                    '每月新增不同職位，逐步擴編成你的公司',
+                    '依聊天紀錄與回饋持續迭代',
+                    '優先解鎖新職位的體驗資格',
+                ],
+                triggers: [
+                    '需要你決定下一個最該擴編的職位',
+                    '需要你提供流程/素材（商品、規則、話術）',
+                    '每週迭代回報與建議確認',
+                ],
+                icon: 'repeat',
             },
         };
 
-        const openOrgModal = (key) => {
-            if (!orgModal || !orgNodeCopy[key]) return;
-            const { title, description, icon } = orgNodeCopy[key];
-            if (orgModalTitle) orgModalTitle.textContent = title;
-            if (orgModalDescription) orgModalDescription.textContent = description;
+        const statusClasses = {
+            '已上線 v1': 'border-emerald-400/30 bg-emerald-500/15 text-emerald-200',
+            Beta: 'border-amber-400/30 bg-amber-500/15 text-amber-200',
+            '下月解鎖': 'border-slate-400/30 bg-slate-500/20 text-slate-200',
+        };
+
+        const setActiveRole = (roleId) => {
+            if (!orgChart) return;
+            const nodes = orgChart.querySelectorAll('[data-role-id]');
+            nodes.forEach((node) => {
+                node.classList.toggle('is-active', node.dataset.roleId === roleId);
+            });
+            orgChart.classList.add('is-modal-open');
+        };
+
+        const renderRoleList = (items = []) => items.map((item) => `<li>${item}</li>`).join('');
+
+        const openOrgModal = (roleId) => {
+            const role = orgRoles[roleId];
+            if (!orgModal || !role) return;
+            if (orgModalTitleZh) orgModalTitleZh.textContent = role.title_zh;
+            if (orgModalTitleEn) orgModalTitleEn.textContent = role.title_en;
+            if (orgModalStatus) {
+                const statusClass = statusClasses[role.status] || 'border-white/20 bg-white/10 text-gray-200';
+                orgModalStatus.className = `inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold ${statusClass}`;
+                orgModalStatus.textContent = role.status;
+            }
+            if (orgModalSummary) orgModalSummary.textContent = role.summary;
+            if (orgModalBenefits) orgModalBenefits.innerHTML = renderRoleList(role.benefits);
+            if (orgModalTriggers) orgModalTriggers.innerHTML = renderRoleList(role.triggers);
+            if (orgModalCtaPrimary) orgModalCtaPrimary.href = lineLink;
+            if (orgModalCtaSecondary1) orgModalCtaSecondary1.href = '#beta-rules';
+            if (orgModalCtaSecondary2) orgModalCtaSecondary2.href = '#examples';
+            if (orgModalFooter) {
+                orgModalFooter.textContent = '持續擴編中：每月新增不同職位員工';
+            }
             if (orgModalIcon) {
-                orgModalIcon.innerHTML = `<i data-lucide="${icon}" class="h-5 w-5"></i>`;
+                orgModalIcon.innerHTML = `<i data-lucide="${role.icon}" class="h-5 w-5"></i>`;
                 lucide.createIcons();
             }
             orgModal.classList.remove('hidden');
             orgModal.classList.add('flex');
             document.body.classList.add('overflow-hidden');
+            setActiveRole(roleId);
         };
 
         const closeOrgModal = () => {
@@ -1062,17 +1306,22 @@
             orgModal.classList.add('hidden');
             orgModal.classList.remove('flex');
             document.body.classList.remove('overflow-hidden');
+            if (orgChart) {
+                orgChart.classList.remove('is-modal-open');
+                orgChart.querySelectorAll('[data-role-id]').forEach((node) => node.classList.remove('is-active'));
+            }
         };
 
-        if (orgChart && orgModal) {
-            orgChart.addEventListener('click', (event) => {
-                const target = event.target.closest('[data-org-node]');
-                if (!target) return;
-                const key = target.dataset.orgNode;
-                if (!orgNodeCopy[key]) return;
-                openOrgModal(key);
+        const roleButtons = document.querySelectorAll('[data-role-button][data-role-id]');
+        roleButtons.forEach((button) => {
+            button.addEventListener('click', () => openOrgModal(button.dataset.roleId));
+            button.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openOrgModal(button.dataset.roleId);
+                }
             });
-        }
+        });
 
         if (orgModalOverlay) {
             orgModalOverlay.addEventListener('click', closeOrgModal);
@@ -1081,6 +1330,12 @@
         if (orgModalClose) {
             orgModalClose.addEventListener('click', closeOrgModal);
         }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && orgModal && !orgModal.classList.contains('hidden')) {
+                closeOrgModal();
+            }
+        });
 
         const progressBar = document.querySelector('[data-progress-bar]');
         const progressValue = document.querySelector('[data-progress-value]');
