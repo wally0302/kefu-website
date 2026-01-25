@@ -335,34 +335,9 @@
                         這裡會顯示角色的職責說明。
                     </p>
                     <div class="space-y-2">
-                        <h4 class="text-sm font-semibold text-white">你會得到什麼</h4>
+                        <h4 class="text-sm font-semibold text-white">工作內容</h4>
                         <ul data-org-modal-benefits class="space-y-2 text-sm text-gray-300 list-disc list-inside">
                         </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <h4 class="text-sm font-semibold text-white">什麼時候會找你</h4>
-                        <ul data-org-modal-triggers class="space-y-2 text-sm text-gray-300 list-disc list-inside">
-                        </ul>
-                    </div>
-                    <div class="space-y-3">
-                        <h4 class="text-sm font-semibold text-white">下一步</h4>
-                        <div class="flex flex-col gap-3">
-                            <a data-org-modal-cta-primary href="#" target="_blank" rel="noreferrer"
-                                class="bg-button-gradient hover:opacity-90 text-white font-semibold px-5 py-3 rounded-xl shadow-xl shadow-indigo-500/30 transition-all transform hover:scale-[1.01] flex items-center justify-center gap-2 ring-2 ring-indigo-200/40 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200/60">
-                                <span>加入 LINE｜申請 CEO 合夥人封測（限量 5 家）</span>
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            </a>
-                            <div class="flex flex-col sm:flex-row gap-3 text-sm">
-                                <a data-org-modal-cta-secondary-1 href="#beta-rules"
-                                    class="flex-1 inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-gray-200 hover:text-white hover:border-indigo-300 transition">
-                                    查看封測規則
-                                </a>
-                                <a data-org-modal-cta-secondary-2 href="#examples"
-                                    class="flex-1 inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-gray-200 hover:text-white hover:border-indigo-300 transition">
-                                    查看範例對話
-                                </a>
-                            </div>
-                        </div>
                     </div>
                     <p data-org-modal-footer class="text-xs text-gray-400 border-t border-white/10 pt-4">
                         持續擴編中：每月新增不同職位員工
@@ -547,26 +522,26 @@
                             <div class="mt-8 w-full">
                                 <p class="text-xs uppercase tracking-[0.3em] text-gray-500 text-center">Coming Soon</p>
                                 <div class="mt-4 grid gap-3 sm:grid-cols-3">
-                                    <div data-role-button data-role-id="marketing_agent" role="button" tabindex="0"
-                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400">
                                         <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
                                         <div class="text-sm font-semibold text-gray-300">行銷專員</div>
                                         <div class="text-xs text-gray-500">Marketing Agent</div>
-                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                        <span class="text-[10px] text-gray-500">待解鎖</span>
                                     </div>
-                                    <div data-role-button data-role-id="order_agent" role="button" tabindex="0"
-                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400">
                                         <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
                                         <div class="text-sm font-semibold text-gray-300">訂單助理</div>
                                         <div class="text-xs text-gray-500">Order Agent</div>
-                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                        <span class="text-[10px] text-gray-500">待解鎖</span>
                                     </div>
-                                    <div data-role-button data-role-id="retention_coach" role="button" tabindex="0"
-                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400 transition hover:border-gray-400/80 cursor-pointer">
+                                    <div
+                                        class="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-gray-600 bg-gray-900/40 px-3 py-4 text-center text-gray-400">
                                         <i data-lucide="lock" class="h-4 w-4 text-gray-500"></i>
-                                        <div class="text-sm font-semibold text-gray-300">回購教練</div>
+                                        <div class="text-sm font-semibold text-gray-300">數據分析專員</div>
                                         <div class="text-xs text-gray-500">Retention Coach</div>
-                                        <span class="text-[10px] text-gray-500">下月解鎖</span>
+                                        <span class="text-[10px] text-gray-500">待解鎖</span>
                                     </div>
                                 </div>
                             </div>
@@ -1143,16 +1118,10 @@
         const orgModalStatus = document.querySelector('[data-org-modal-status]');
         const orgModalSummary = document.querySelector('[data-org-modal-summary]');
         const orgModalBenefits = document.querySelector('[data-org-modal-benefits]');
-        const orgModalTriggers = document.querySelector('[data-org-modal-triggers]');
-        const orgModalCtaPrimary = document.querySelector('[data-org-modal-cta-primary]');
-        const orgModalCtaSecondary1 = document.querySelector('[data-org-modal-cta-secondary-1]');
-        const orgModalCtaSecondary2 = document.querySelector('[data-org-modal-cta-secondary-2]');
         const orgModalFooter = document.querySelector('[data-org-modal-footer]');
         const orgModalIcon = document.querySelector('[data-org-modal-icon]');
         const orgModalOverlay = document.querySelector('[data-org-modal-overlay]');
         const orgModalClose = document.querySelector('[data-org-modal-close]');
-
-        const lineLink = 'https://line.me/R/ti/p/@304dgdjo';
 
         const orgRoles = {
             root_agent: {
@@ -1196,7 +1165,7 @@
             marketing_agent: {
                 title_zh: '行銷專員',
                 title_en: 'Marketing Agent',
-                status: '下月解鎖',
+                status: '待解鎖',
                 summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
                 benefits: [
                     '每月新增不同職位，逐步擴編成你的公司',
@@ -1213,7 +1182,7 @@
             order_agent: {
                 title_zh: '訂單助理',
                 title_en: 'Order Agent',
-                status: '下月解鎖',
+                status: '待解鎖',
                 summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
                 benefits: [
                     '每月新增不同職位，逐步擴編成你的公司',
@@ -1228,9 +1197,9 @@
                 icon: 'clipboard-list',
             },
             retention_coach: {
-                title_zh: '回購教練',
-                title_en: 'Retention Coach',
-                status: '下月解鎖',
+                title_zh: '數據分析專員',
+                title_en: 'Data Analyst',
+                status: '待解鎖',
                 summary: '這個職位即將上工。你加入封測的回饋，會直接影響下一位員工的優先順序。',
                 benefits: [
                     '每月新增不同職位，逐步擴編成你的公司',
@@ -1249,7 +1218,7 @@
         const statusClasses = {
             '已上線 v1': 'border-emerald-400/30 bg-emerald-500/15 text-emerald-200',
             Beta: 'border-amber-400/30 bg-amber-500/15 text-amber-200',
-            '下月解鎖': 'border-slate-400/30 bg-slate-500/20 text-slate-200',
+            '待解鎖': 'border-slate-400/30 bg-slate-500/20 text-slate-200',
         };
 
         const setActiveRole = (roleId) => {
@@ -1275,10 +1244,6 @@
             }
             if (orgModalSummary) orgModalSummary.textContent = role.summary;
             if (orgModalBenefits) orgModalBenefits.innerHTML = renderRoleList(role.benefits);
-            if (orgModalTriggers) orgModalTriggers.innerHTML = renderRoleList(role.triggers);
-            if (orgModalCtaPrimary) orgModalCtaPrimary.href = lineLink;
-            if (orgModalCtaSecondary1) orgModalCtaSecondary1.href = '#beta-rules';
-            if (orgModalCtaSecondary2) orgModalCtaSecondary2.href = '#examples';
             if (orgModalFooter) {
                 orgModalFooter.textContent = '持續擴編中：每月新增不同職位員工';
             }
