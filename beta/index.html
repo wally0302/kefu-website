@@ -102,6 +102,11 @@
             transform: translateY(-2px);
             box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.6), 0 12px 24px rgba(15, 23, 42, 0.35);
         }
+
+        body.is-org-modal-open .site-header {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -1298,6 +1303,7 @@
             orgModal.classList.remove('hidden');
             orgModal.classList.add('flex');
             document.body.classList.add('overflow-hidden');
+            document.body.classList.add('is-org-modal-open');
             setActiveRole(roleId);
         };
 
@@ -1306,6 +1312,7 @@
             orgModal.classList.add('hidden');
             orgModal.classList.remove('flex');
             document.body.classList.remove('overflow-hidden');
+            document.body.classList.remove('is-org-modal-open');
             if (orgChart) {
                 orgChart.classList.remove('is-modal-open');
                 orgChart.querySelectorAll('[data-role-id]').forEach((node) => node.classList.remove('is-active'));
