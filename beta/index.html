@@ -406,18 +406,18 @@
                                             <i data-lucide="cpu" class="h-5 w-5"></i>
                                         </span>
                                         <div>
-                                            <div class="text-lg font-bold text-white">AI 營運總監</div>
+                                            <div class="text-lg font-bold text-white">營運總監</div>
                                             <div class="text-xs text-gray-400">Root Agent</div>
                                         </div>
                                     </div>
                                     <span
                                         class="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">已上線 v1</span>
                                 </div>
-                                <p class="mt-3 text-sm text-gray-300">分派任務、整合策略，追蹤服務品質與效率。</p>
+                                <p class="mt-3 text-sm text-gray-300">你的指揮中心：決定交給誰處理，並統一回覆語氣。</p>
                                 <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">任務統籌</span>
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">KPI 追蹤</span>
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">例外判斷</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">任務分派</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">語氣人設</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">禁語規則</span>
                                 </div>
                             </div>
                             <div data-role-button data-role-id="faq_agent" role="button" tabindex="0"
@@ -441,7 +441,6 @@
                                 <div class="mt-4 flex flex-wrap gap-2 text-xs">
                                     <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">24/7 回覆</span>
                                     <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">FAQ 整理</span>
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">流程問答</span>
                                 </div>
                             </div>
                             <div data-role-button data-role-id="handover_agent" role="button" tabindex="0"
@@ -454,18 +453,18 @@
                                             <i data-lucide="users" class="h-5 w-5"></i>
                                         </span>
                                         <div>
-                                            <div class="text-lg font-bold text-white">人機協作</div>
+                                            <div class="text-lg font-bold text-white">轉接專員（人機協作）</div>
                                             <div class="text-xs text-gray-400">Handover Agent</div>
                                         </div>
                                     </div>
                                     <span
-                                        class="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-500/15 px-2 py-0.5 text-[11px] font-semibold text-amber-200">Beta</span>
+                                        class="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-500/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">已上線 v1</span>
                                 </div>
-                                <p class="mt-3 text-sm text-gray-300">判斷例外與轉接，讓需要你出面的事可追蹤。</p>
+                                <p class="mt-3 text-sm text-gray-300">將需要真人回覆的對話彙整重點，轉交後續處理。</p>
                                 <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">例外偵測</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">轉接處理</span>
+                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">例外情境</span>
                                     <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">交接摘要</span>
-                                    <span class="rounded-full bg-white/5 px-2 py-1 text-gray-300">轉接判斷</span>
                                 </div>
                             </div>
                         </div>
@@ -503,7 +502,7 @@
                                 class="z-10 w-48 h-16 bg-indigo-600/20 border border-indigo-500 rounded-lg flex flex-col items-center justify-center backdrop-blur-md animate-pulse-slow shadow-lg shadow-indigo-500/20 shrink-0 cursor-pointer transition-colors hover:border-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="cpu" class="text-indigo-300 w-5 h-5"></i>
-                                    <span class="text-base font-bold text-indigo-200">AI 營運總監</span>
+                                    <span class="text-base font-bold text-indigo-200">營運總監</span>
                                 </div>
                                 <div class="text-[10px] text-indigo-400 mt-0.5">Root Agent</div>
                             </div>
@@ -539,7 +538,7 @@
                                         <i data-lucide="users" class="text-orange-400 w-5 h-5"></i>
                                     </div>
                                     <div class="text-center">
-                                        <div class="text-sm font-bold text-white">人機協作</div>
+                                        <div class="text-sm font-bold text-white">轉接專員（人機協作）</div>
                                         <div class="text-xs text-gray-500">Handover Agent</div>
                                     </div>
                                 </div>
@@ -1157,54 +1156,41 @@
 
         const orgRoles = {
             root_agent: {
-                title_zh: 'AI 營運總監',
+                title_zh: '營運總監',
                 title_en: 'Root Agent',
                 status: '已上線 v1',
-                summary: '你的虛擬公司主管：分派任務、整合策略，追蹤服務品質與效率。',
+                summary: '你的指揮中心：決定交給誰處理，並統一回覆語氣。',
                 benefits: [
-                    '把聊天紀錄整理成待辦／工單',
-                    '判斷例外並提醒你介入決策',
-                    '每週彙整 KPI 與改善建議',
+                    '判斷訊息類型並分派給對應員工（客服部 / 人機協作）',
+                    '套用你設定的語氣與人設（親切、專業、像朋友…）',
+                    '遵守你的禁語規則（例如：不要用簡體、不要太油）',
                 ],
-                triggers: [
-                    '退款／客訴／高風險情境需你確認',
-                    '無法回答或超出知識範圍',
-                    '偵測到異常波動（暴增／轉換下滑）',
-                ],
+                triggers: [],
                 icon: 'cpu',
             },
             faq_agent: {
                 title_zh: '客服部',
                 title_en: 'FAQ Agent',
                 status: '已上線 v1',
-                summary: '你的第一位虛擬員工：24/7 接起重複問題，讓你不用一直回訊息。',
+                summary: '24/7 接起重複問題，讓你不用一直回訊息。',
                 benefits: [
-                    '24/7 回答常見問題與流程詢問',
-                    '對話自動整理成 FAQ／熱門問題',
-                    '依你的回饋每週更新回答',
+                    '回答常見問題與基本流程詢問（例如：價格、時間、服務內容）',
+                    '依照設定的內容回覆',
+                    '回覆語氣會套用 營運總監所訂的規則（語氣人設與禁語規則）',
                 ],
-                triggers: [
-                    '需要客製報價或特殊承諾',
-                    '客人情緒升高或疑似客訴',
-                    '問題超出 FAQ／資料不足',
-                ],
+                triggers: [],
                 icon: 'message-circle',
             },
             handover_agent: {
-                title_zh: '人機協作',
+                title_zh: '轉接專員（人機協作）',
                 title_en: 'Handover Agent',
-                status: 'Beta',
-                summary: '你的例外與轉接專員：先判斷，再把需要你出面的事變成可追蹤事件。',
+                status: '已上線 v1',
+                summary: '將需要真人回覆的對話彙整重點，轉交後續處理。',
                 benefits: [
-                    '偵測例外情境，建議是否需要轉接',
-                    '把轉接變成可追蹤工單／待辦',
-                    '自動整理交接摘要，讓你秒懂脈絡',
+                    '接手「非 FAQ」或較複雜的訊息，判斷是否需要轉給真人處理',
+                    '轉接前先整理對話脈絡與重點',
                 ],
-                triggers: [
-                    '退款／退換／爭議等高風險案件',
-                    '需要真人確認條件或承諾',
-                    '客人反覆追問、情緒波動明顯',
-                ],
+                triggers: [],
                 icon: 'users',
             },
             marketing_agent: {
