@@ -154,7 +154,8 @@
         }
 
         .line-clamp-1,
-        .line-clamp-2 {
+        .line-clamp-2,
+        .line-clamp-3 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -168,6 +169,159 @@
             -webkit-line-clamp: 2;
         }
 
+        .line-clamp-3 {
+            -webkit-line-clamp: 3;
+        }
+
+        #roi {
+            padding: 80px 64px;
+        }
+
+        #roi .roi-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        #roi .roi-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #roi .roi-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        #roi .roi-subtitle {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        #roi .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        #roi .roi-card {
+            position: relative;
+            min-height: 360px;
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(11, 15, 25, 0.78);
+            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
+            cursor: default;
+            backdrop-filter: blur(18px);
+        }
+
+        #roi .roi-card--manual {
+            border-color: rgba(248, 113, 113, 0.28);
+            box-shadow: 0 18px 36px rgba(248, 113, 113, 0.12);
+        }
+
+        #roi .roi-card--kefu {
+            border-color: rgba(129, 140, 248, 0.35);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        #roi .card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(248, 113, 113, 0.1);
+            color: #fca5a5;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        #roi .card-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+
+        #roi .card-tag.best-value {
+            background: rgba(129, 140, 248, 0.18);
+            color: #c7d2fe;
+            border: 1px solid rgba(129, 140, 248, 0.4);
+        }
+
+        #roi .card-title {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        #roi .card-headline {
+            margin-top: 16px;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #f8fafc;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+        }
+
+        #roi .card-list {
+            margin-top: 20px;
+            display: grid;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(226, 232, 240, 0.78);
+            padding-left: 18px;
+            list-style: disc;
+        }
+
+        #roi .card-list li {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 1;
+        }
+
+        #roi .card-cta {
+            margin-top: 24px;
+        }
+
+        #roi .card-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(139, 92, 246, 0.9));
+            color: #ffffff;
+            border: 1px solid rgba(165, 180, 252, 0.6);
+            box-shadow: 0 12px 26px rgba(99, 102, 241, 0.35);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        #roi .card-cta .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 1023px) {
             #pain-points {
                 padding: 64px 32px;
@@ -176,6 +330,18 @@
             #pain-points .card-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 20px;
+            }
+
+            #roi {
+                padding: 72px 32px;
+            }
+
+            #roi .roi-grid {
+                gap: 24px;
+            }
+
+            #roi .roi-card {
+                min-height: 340px;
             }
         }
 
@@ -191,6 +357,27 @@
 
             #pain-points .pain-card {
                 min-height: auto;
+            }
+
+            #roi {
+                padding: 64px 20px;
+            }
+
+            #roi .roi-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            #roi .roi-card {
+                min-height: auto;
+            }
+
+            #roi .card-cta .btn {
+                width: 100%;
+            }
+
+            #roi .card-headline {
+                -webkit-line-clamp: 3;
             }
         }
     </style>
@@ -371,6 +558,193 @@
                             成為首批 CEO 合夥人，先把夜間與忙碌時段守住。
                         </p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi" class="roi-section">
+            <div class="roi-container">
+                <header class="roi-header">
+                    <h2 class="roi-title">算一筆帳：你每天被訊息偷走多少時間？</h2>
+                    <p class="roi-subtitle line-clamp-2">CEO 合夥人封測：先把重複接待交給虛擬團隊，時間拿回來做更重要的事。</p>
+                </header>
+
+                <div class="roi-grid">
+                    <article class="roi-card roi-card--manual">
+                        <div class="card-top">
+                            <div class="card-badge">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                                <span>時間流失</span>
+                            </div>
+                        </div>
+                        <h3 class="card-title">傳統真人 / 手動回覆</h3>
+                        <p class="card-headline">每月浪費 15–30 小時在回訊息</p>
+                        <ul class="card-list">
+                            <li class="line-clamp-1">重複問題一多，就被迫一直盯著訊息</li>
+                            <li class="line-clamp-1">客人沒等到回覆，通常不會抱怨就離開</li>
+                            <li class="line-clamp-1">時間被吃掉＝產品、服務、開發都被延後</li>
+                        </ul>
+                    </article>
+
+                    <article class="roi-card roi-card--kefu">
+                        <div class="card-tag best-value">BEST VALUE</div>
+                        <h3 class="card-title">KEFU 虛擬團隊</h3>
+                        <p class="card-headline">CEO 合夥人封測：14 天免費（每日 50 則上限）</p>
+                        <ul class="card-list">
+                            <li class="line-clamp-1">24/7 先接住常見問題，減少你重複回覆</li>
+                            <li class="line-clamp-1">回覆語氣依你的 Persona / 禁語規則統一</li>
+                            <li class="line-clamp-1">封測期間共創迭代：把 FAQ 越補越完整</li>
+                        </ul>
+                        <div class="card-cta">
+                            <a class="btn btn-primary" href="https://line.me/R/ti/p/@304dgdjo" target="_blank"
+                                rel="noreferrer">加入 LINE｜申請 CEO 合夥人封測（限量 5 家）</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="beta-rules" class="sr-only">
+            <h2>封測規則</h2>
+        </section>
+
+        <section id="examples" class="sr-only">
+            <h2>範例對話</h2>
+        </section>
+
+        <!-- 2) 5 分鐘設定你的虛擬公司 -->
+        <section class="py-20 px-6 border-t border-brand-border/30 scroll-reveal">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 scroll-reveal">
+                    <h2 class="scroll-reveal scroll-float text-2xl md:text-3xl font-bold mb-4">5 分鐘上線你的虛擬公司，團隊立刻開工</h2>
+                </div>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-5 top-0 h-full w-px bg-indigo-500/30"></div>
+                    <div class="space-y-8">
+                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="120">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                                01
+                            </div>
+                            <div
+                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="clipboard-check" class="w-5 h-5 text-indigo-300"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">填寫公司設定</h3>
+                                </div>
+                                <p class="text-sm text-gray-400">輸入品牌介紹、FAQ 與服務範圍，AI 立刻理解你的營運需求。</p>
+                                <button type="button" data-product-toggle aria-expanded="false"
+                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
+                                    <span data-toggle-label>點擊查看產品畫面</span>
+                                    <i data-lucide="image" class="h-4 w-4"></i>
+                                </button>
+                                <div data-product-panel class="mt-4 hidden space-y-3">
+                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
+                                        <p class="text-xs text-indigo-200 mb-2">智能問卷設定畫面</p>
+                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769243874/%E5%9F%BA%E6%9C%AC%E8%A8%AD%E5%AE%9A_ku6ctk.png"
+                                            alt="智能問卷設定畫面" data-lightbox
+                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="200">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                                02
+                            </div>
+                            <div
+                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="wand-2" class="w-5 h-5 text-indigo-300"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">AI 自動編制團隊</h3>
+                                </div>
+                                <p class="text-sm text-gray-400">系統自動建立訊息接待與人機協作轉接角色，並指派各自職責。</p>
+                                <button type="button" data-product-toggle aria-expanded="false"
+                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
+                                    <span data-toggle-label>點擊查看產品畫面</span>
+                                    <i data-lucide="image" class="h-4 w-4"></i>
+                                </button>
+                                <div data-product-panel class="mt-4 hidden space-y-3">
+                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
+                                        <p class="text-xs text-indigo-200 mb-2">虛擬員工設定畫面</p>
+                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244271/AI_%E8%87%AA%E5%8B%95%E7%B7%A8%E5%88%B6%E5%9C%98%E9%9A%8A_fcgjyj.png"
+                                            alt="虛擬員工設定畫面" data-lightbox
+                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="280">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                                03
+                            </div>
+                            <div
+                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="plug" class="w-5 h-5 text-indigo-300"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">一鍵串接 LINE 官方帳號</h3>
+                                </div>
+                                <p class="text-sm text-gray-400">訊息即時導入你的 AI 團隊，開始接住重複問題。</p>
+                                <button type="button" data-product-toggle aria-expanded="false"
+                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
+                                    <span data-toggle-label>點擊查看產品畫面</span>
+                                    <i data-lucide="image" class="h-4 w-4"></i>
+                                </button>
+                                <div data-product-panel class="mt-4 hidden space-y-3">
+                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
+                                        <p class="text-xs text-indigo-200 mb-2">LINE 設定畫面</p>
+                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244419/%E9%83%A8%E7%BD%B2%E7%95%AB%E9%9D%A2_s66q9t.png"
+                                            alt="LINE 設定畫面" data-lightbox
+                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="360">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
+                                04
+                            </div>
+                            <div
+                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="rocket" class="w-5 h-5 text-indigo-300"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">立即開始營運</h3>
+                                </div>
+                                <p class="text-sm text-gray-400">AI 全天候接待顧客，你專心做決策與產品迭代。</p>
+                                <button type="button" data-product-toggle aria-expanded="false"
+                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
+                                    <span data-toggle-label>點擊查看產品畫面</span>
+                                    <i data-lucide="image" class="h-4 w-4"></i>
+                                </button>
+                                <div data-product-panel class="mt-4 hidden space-y-3">
+                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
+                                        <p class="text-xs text-indigo-200 mb-2">AI 客服實際畫面</p>
+                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244749/IMG_7330_un8lny.png"
+                                            alt="AI 客服實際畫面" data-lightbox
+                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -623,151 +997,6 @@
             </div>
         </section>
 
-        <section id="beta-rules" class="sr-only">
-            <h2>封測規則</h2>
-        </section>
-
-        <section id="examples" class="sr-only">
-            <h2>範例對話</h2>
-        </section>
-
-        <!-- 2) 5 分鐘設定你的虛擬公司 -->
-        <section class="py-20 px-6 border-t border-brand-border/30 scroll-reveal">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12 scroll-reveal">
-                    <h2 class="scroll-reveal scroll-float text-2xl md:text-3xl font-bold mb-4">5 分鐘上線你的虛擬公司，團隊立刻開工</h2>
-                </div>
-                <div class="relative max-w-3xl mx-auto">
-                    <div class="absolute left-5 top-0 h-full w-px bg-indigo-500/30"></div>
-                    <div class="space-y-8">
-                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="120">
-                            <div
-                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
-                                01
-                            </div>
-                            <div
-                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                                        <i data-lucide="clipboard-check" class="w-5 h-5 text-indigo-300"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white">填寫公司設定</h3>
-                                </div>
-                                <p class="text-sm text-gray-400">輸入品牌介紹、FAQ 與服務範圍，AI 立刻理解你的營運需求。</p>
-                                <button type="button" data-product-toggle aria-expanded="false"
-                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
-                                    <span data-toggle-label>點擊查看產品畫面</span>
-                                    <i data-lucide="image" class="h-4 w-4"></i>
-                                </button>
-                                <div data-product-panel class="mt-4 hidden space-y-3">
-                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
-                                        <p class="text-xs text-indigo-200 mb-2">智能問卷設定畫面</p>
-                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769243874/%E5%9F%BA%E6%9C%AC%E8%A8%AD%E5%AE%9A_ku6ctk.png"
-                                            alt="智能問卷設定畫面" data-lightbox
-                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="200">
-                            <div
-                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
-                                02
-                            </div>
-                            <div
-                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                                        <i data-lucide="wand-2" class="w-5 h-5 text-indigo-300"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white">AI 自動編制團隊</h3>
-                                </div>
-                                <p class="text-sm text-gray-400">系統自動建立訊息接待與人機協作轉接角色，並指派各自職責。</p>
-                                <button type="button" data-product-toggle aria-expanded="false"
-                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
-                                    <span data-toggle-label>點擊查看產品畫面</span>
-                                    <i data-lucide="image" class="h-4 w-4"></i>
-                                </button>
-                                <div data-product-panel class="mt-4 hidden space-y-3">
-                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
-                                        <p class="text-xs text-indigo-200 mb-2">虛擬員工設定畫面</p>
-                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244271/AI_%E8%87%AA%E5%8B%95%E7%B7%A8%E5%88%B6%E5%9C%98%E9%9A%8A_fcgjyj.png"
-                                            alt="虛擬員工設定畫面" data-lightbox
-                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="280">
-                            <div
-                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
-                                03
-                            </div>
-                            <div
-                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                                        <i data-lucide="plug" class="w-5 h-5 text-indigo-300"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white">一鍵串接 LINE 官方帳號</h3>
-                                </div>
-                                <p class="text-sm text-gray-400">訊息即時導入你的 AI 團隊，開始接住重複問題。</p>
-                                <button type="button" data-product-toggle aria-expanded="false"
-                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
-                                    <span data-toggle-label>點擊查看產品畫面</span>
-                                    <i data-lucide="image" class="h-4 w-4"></i>
-                                </button>
-                                <div data-product-panel class="mt-4 hidden space-y-3">
-                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
-                                        <p class="text-xs text-indigo-200 mb-2">LINE 設定畫面</p>
-                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244419/%E9%83%A8%E7%BD%B2%E7%95%AB%E9%9D%A2_s66q9t.png"
-                                            alt="LINE 設定畫面" data-lightbox
-                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="scroll-reveal relative pl-16 group" data-reveal-delay="360">
-                            <div
-                                class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-bold">
-                                04
-                            </div>
-                            <div
-                                class="bg-brand-card/70 border border-brand-border rounded-2xl p-6 transition-all duration-300 group-hover:border-indigo-400/60 group-hover:shadow-lg group-hover:shadow-indigo-500/20">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center">
-                                        <i data-lucide="rocket" class="w-5 h-5 text-indigo-300"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white">立即開始營運</h3>
-                                </div>
-                                <p class="text-sm text-gray-400">AI 全天候接待顧客，你專心做決策與產品迭代。</p>
-                                <button type="button" data-product-toggle aria-expanded="false"
-                                    class="mt-4 inline-flex items-center gap-2 rounded-lg border border-indigo-400/40 bg-white/5 px-4 py-2 text-xs font-semibold text-indigo-100 transition hover:border-indigo-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
-                                    <span data-toggle-label>點擊查看產品畫面</span>
-                                    <i data-lucide="image" class="h-4 w-4"></i>
-                                </button>
-                                <div data-product-panel class="mt-4 hidden space-y-3">
-                                    <div class="rounded-2xl border border-indigo-500/20 bg-brand-card/40 p-3">
-                                        <p class="text-xs text-indigo-200 mb-2">AI 客服實際畫面</p>
-                                        <img src="https://res.cloudinary.com/dvheto44g/image/upload/v1769244749/IMG_7330_un8lny.png"
-                                            alt="AI 客服實際畫面" data-lightbox
-                                            class="w-full rounded-xl border border-white/5 bg-black/20 cursor-zoom-in"
-                                            loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Why Choose Section -->
         <section class="relative z-10 py-20 px-6 border-t border-brand-border/30 scroll-reveal">
             <div class="max-w-6xl mx-auto">
@@ -809,48 +1038,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Comparison / Value -->
-        <section class="relative z-10 py-16 px-6 border-t border-brand-border/30 scroll-reveal">
-            <div
-                class="scroll-reveal max-w-4xl mx-auto bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 border border-gray-700 text-center">
-                <h3 class="scroll-reveal scroll-float text-2xl font-bold text-white mb-8">算一筆帳：你正在虧損多少錢？</h3>
-
-                <div class="flex flex-col md:flex-row justify-center gap-8 text-left">
-                    <!-- 左邊：損失強調 -->
-                    <div class="scroll-reveal flex-1 bg-red-900/20 p-6 rounded-xl border border-red-900/30 opacity-70" data-reveal-delay="120">
-                        <div class="text-red-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
-                            <i data-lucide="user" class="w-4 h-4"></i> 傳統真人 / 手動回覆
-                        </div>
-                        <div class="text-white text-lg font-medium mb-2">每小時損失 $3,000+ 產值</div>
-                        <ul class="text-gray-400 text-sm list-disc list-inside space-y-1">
-                            <li>假設時薪 $3,000，每天花 1 小時</li>
-                            <li>月虧損 $90,000 的開發價值</li>
-                            <li>需負擔勞健保與情緒成本</li>
-                        </ul>
-                    </div>
-
-                    <!-- 右邊：價值強調 -->
-                    <div
-                        class="scroll-reveal flex-1 bg-indigo-900/20 p-6 rounded-xl border border-indigo-500/50 relative overflow-hidden shadow-lg shadow-indigo-500/10"
-                        data-reveal-delay="180">
-                        <div
-                            class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">
-                            BEST VALUE</div>
-                        <div class="text-indigo-400 font-bold mb-2 text-sm uppercase flex items-center gap-2">
-                            <i data-lucide="bot" class="w-4 h-4"></i> Kefu 虛擬團隊
-                        </div>
-                        <div class="text-white text-lg font-medium mb-2">月費 NT$ 300 起</div>
-                        <ul class="text-gray-400 text-sm list-disc list-inside space-y-1">
-                            <li><span class="text-white font-bold">24 小時</span> 全天候待命</li>
-                            <li>贖回你的開發時間</li>
-                            <li>完全自動化，零管理成本</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <div id="beta-exchange-modal"
             class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
