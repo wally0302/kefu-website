@@ -218,6 +218,9 @@
             box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
             cursor: default;
             backdrop-filter: blur(18px);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
 
         #roi .roi-card--manual {
@@ -262,26 +265,38 @@
         }
 
         #roi .card-title {
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 8px;
+            font-size: 16px;
             font-weight: 700;
-            color: #ffffff;
+            color: rgba(226, 232, 240, 0.9);
+            letter-spacing: 0.02em;
+        }
+
+        #roi .card-metric {
+            padding: 16px 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: rgba(15, 23, 42, 0.65);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+        }
+
+        #roi .card-metric-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(226, 232, 240, 0.65);
+            margin-bottom: 8px;
         }
 
         #roi .card-headline {
-            margin-top: 16px;
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 1.3;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.4;
             color: #f8fafc;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            -webkit-line-clamp: 2;
         }
 
         #roi .card-list {
-            margin-top: 20px;
             display: grid;
             gap: 10px;
             font-size: 16px;
@@ -300,7 +315,7 @@
         }
 
         #roi .card-cta {
-            margin-top: 24px;
+            margin-top: auto;
         }
 
         #roi .card-cta .btn {
@@ -695,7 +710,10 @@
                             </div>
                         </div>
                         <h3 class="card-title">傳統真人 / 手動回覆</h3>
-                        <p class="card-headline">每月浪費 15–30 小時在回訊息</p>
+                        <div class="card-metric">
+                            <p class="card-metric-label">現況估算</p>
+                            <p class="card-headline">每月浪費 15–30 小時在回訊息</p>
+                        </div>
                         <ul class="card-list">
                             <li class="line-clamp-1">重複問題一多，就被迫一直盯著訊息</li>
                             <li class="line-clamp-1">客人沒等到回覆，通常不會抱怨就離開</li>
@@ -706,7 +724,10 @@
                     <article class="roi-card roi-card--kefu">
                         <div class="card-tag best-value">BEST VALUE</div>
                         <h3 class="card-title">KEFU 虛擬團隊</h3>
-                        <p class="card-headline">CEO 合夥人封測：14 天免費</p>
+                        <div class="card-metric">
+                            <p class="card-metric-label">封測優惠</p>
+                            <p class="card-headline">CEO 合夥人封測：14 天免費</p>
+                        </div>
                         <ul class="card-list">
                             <li class="line-clamp-1">24/7 先接住常見問題，減少你重複回覆</li>
                             <li class="line-clamp-1">回覆語氣依你的 Persona / 禁語規則統一</li>
