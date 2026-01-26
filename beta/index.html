@@ -322,6 +322,84 @@
             transform: translateY(-1px);
         }
 
+        #why-virtual-employees {
+            padding: 72px 0;
+        }
+
+        #why-virtual-employees .why-container {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        #why-virtual-employees .why-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        #why-virtual-employees .why-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        #why-virtual-employees .why-subtitle {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        #why-virtual-employees .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        #why-virtual-employees .why-card {
+            min-height: 260px;
+            padding: 28px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        #why-virtual-employees .why-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #why-virtual-employees .why-title-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        #why-virtual-employees .why-body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.74);
+        }
+
+        #why-virtual-employees .why-card--2 .why-body {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
         @media (max-width: 1023px) {
             #pain-points {
                 padding: 64px 32px;
@@ -342,6 +420,15 @@
 
             #roi .roi-card {
                 min-height: 340px;
+            }
+
+            #why-virtual-employees .why-container {
+                padding: 0 32px;
+            }
+
+            #why-virtual-employees .why-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
             }
         }
 
@@ -378,6 +465,19 @@
 
             #roi .card-headline {
                 -webkit-line-clamp: 3;
+            }
+
+            #why-virtual-employees .why-container {
+                padding: 0 20px;
+            }
+
+            #why-virtual-employees .why-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            #why-virtual-employees .why-card {
+                min-height: auto;
             }
         }
     </style>
@@ -599,6 +699,41 @@
                             <a class="btn btn-primary" href="https://line.me/R/ti/p/@304dgdjo" target="_blank"
                                 rel="noreferrer">加入 LINE｜申請 CEO 合夥人封測（限量 5 家）</a>
                         </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-virtual-employees" class="why-section scroll-reveal">
+            <div class="why-container">
+                <header class="why-header">
+                    <h2 class="why-title">為什麼你該選擇「虛擬員工」？</h2>
+                    <p class="why-subtitle">比起傳統招聘，KeFu 用更快的上線速度與更清楚的分工，先把接待流程穩住。</p>
+                </header>
+
+                <div class="why-grid">
+                    <article class="why-card why-card--1">
+                        <div class="why-icon bg-indigo-900/50">
+                            <i data-lucide="zap" class="text-indigo-400 w-5 h-5"></i>
+                        </div>
+                        <h3 class="why-title-text line-clamp-1">5 分鐘完成上線</h3>
+                        <p class="why-body line-clamp-2">填完公司設定與 FAQ，虛擬團隊立刻開始運作。</p>
+                    </article>
+
+                    <article class="why-card why-card--2">
+                        <div class="why-icon bg-purple-900/50">
+                            <i data-lucide="coffee" class="text-purple-400 w-5 h-5"></i>
+                        </div>
+                        <h3 class="why-title-text line-clamp-1">0 排班、0 訓練、0 斷線</h3>
+                        <p class="why-body line-clamp-2">設定一次即刻上線，就好了。</p>
+                    </article>
+
+                    <article class="why-card why-card--3">
+                        <div class="why-icon bg-blue-900/50">
+                            <i data-lucide="briefcase" class="text-blue-400 w-5 h-5"></i>
+                        </div>
+                        <h3 class="why-title-text line-clamp-1">一人公司，也能有完整部門</h3>
+                        <p class="why-body line-clamp-2">把一人公司升級成「有分工的組織」。</p>
                     </article>
                 </div>
             </div>
@@ -997,47 +1132,7 @@
             </div>
         </section>
 
-        <!-- Why Choose Section -->
-        <section class="relative z-10 py-20 px-6 border-t border-brand-border/30 scroll-reveal">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="scroll-reveal scroll-float text-2xl md:text-3xl font-bold mb-4">為什麼你該選擇「虛擬員工」？</h2>
-                    <p class="text-gray-400">比起傳統招聘，Kefu 提供絕對的經營優勢。</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Feature 1 -->
-                    <div data-reveal-delay="80"
-                        class="scroll-reveal p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                        <div class="w-10 h-10 bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4">
-                            <i data-lucide="zap" class="text-indigo-400 w-5 h-5"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">5 分鐘完成入職 (Onboarding)</h3>
-                        <p class="text-sm text-gray-400">無需數月的面試與訓練。透過「智能建置顧問」，填寫問卷，你的團隊即刻上工。</p>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div data-reveal-delay="160"
-                        class="scroll-reveal p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                        <div class="w-10 h-10 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4">
-                            <i data-lucide="coffee" class="text-purple-400 w-5 h-5"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">0 病假，0 勞資糾紛</h3>
-                        <p class="text-sm text-gray-400">AI 員工不需要睡覺，不會情緒化，永遠保持 100% 的專業與熱情。</p>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div data-reveal-delay="240"
-                        class="scroll-reveal p-6 rounded-2xl bg-brand-card/50 border border-brand-border hover:bg-brand-card transition-colors">
-                        <div class="w-10 h-10 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
-                            <i data-lucide="briefcase" class="text-blue-400 w-5 h-5"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">企業級的專業形象</h3>
-                        <p class="text-sm text-gray-400">讓你的 One-Man App 在客戶眼中，擁有完整且專業的「營運部門」與「客服部門」。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <div id="beta-exchange-modal"
             class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
