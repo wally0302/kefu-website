@@ -139,18 +139,29 @@
             color: #ffffff;
         }
 
-        #pain-points .pain-punchline {
-            margin-top: 12px;
-            font-size: 16px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.78);
+        #pain-points .pain-list {
+            margin-top: 14px;
+            display: grid;
+            gap: 10px;
+            padding-left: 18px;
+            list-style: disc;
         }
 
-        #pain-points .pain-outcome {
-            margin-top: 12px;
+        #pain-points .pain-list-item {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.76);
+        }
+
+        #pain-points .pain-list-item.is-strong {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        #pain-points .pain-list-item.is-muted {
             font-size: 14px;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.68);
+            color: rgba(255, 255, 255, 0.64);
         }
 
         .line-clamp-1,
@@ -656,12 +667,14 @@
                             <i data-lucide="hourglass" class="text-indigo-400 w-6 h-6"></i>
                         </div>
                         <h3 class="pain-title line-clamp-1">隱形的時間負債</h3>
-                        <p class="pain-punchline line-clamp-2">
-                            每天多回 1 小時訊息，一年就被偷走 365 小時。
-                        </p>
-                        <p class="pain-outcome line-clamp-2">
-                            加入封測，把重複問題先交給第一位虛擬員工接起來。
-                        </p>
+                        <ul class="pain-list">
+                            <li class="pain-list-item is-strong line-clamp-2">
+                                每天多回 1 小時訊息，一年就被偷走 365 小時。
+                            </li>
+                            <li class="pain-list-item is-muted line-clamp-2">
+                                加入封測，把重複問題先交給第一位虛擬員工接起來。
+                            </li>
+                        </ul>
                     </article>
 
                     <article class="pain-card scroll-reveal">
@@ -669,12 +682,14 @@
                             <i data-lucide="user-x" class="text-indigo-400 w-6 h-6"></i>
                         </div>
                         <h3 class="pain-title line-clamp-1">沉默流失最可怕</h3>
-                        <p class="pain-punchline line-clamp-2">
-                            多數客人不會抱怨，只會默默離開。
-                        </p>
-                        <p class="pain-outcome line-clamp-2">
-                            封測期間一起把 FAQ 補齊，讓答案更快、流失更少。
-                        </p>
+                        <ul class="pain-list">
+                            <li class="pain-list-item is-strong line-clamp-2">
+                                多數客人不會抱怨，只會默默離開。
+                            </li>
+                            <li class="pain-list-item is-muted line-clamp-2">
+                                封測期間一起把 FAQ 補齊，讓答案更快、流失更少。
+                            </li>
+                        </ul>
                     </article>
 
                     <article class="pain-card scroll-reveal">
@@ -682,12 +697,14 @@
                             <i data-lucide="trending-up" class="text-indigo-400 w-6 h-6"></i>
                         </div>
                         <h3 class="pain-title line-clamp-1">對手正在用 AI 超越你</h3>
-                        <p class="pain-punchline line-clamp-2">
-                            當你在忙或在睡覺，對手的 AI 仍在接待。
-                        </p>
-                        <p class="pain-outcome line-clamp-2">
-                            成為首批 CEO 合夥人，先把夜間與忙碌時段守住。
-                        </p>
+                        <ul class="pain-list">
+                            <li class="pain-list-item is-strong line-clamp-2">
+                                當你在忙或在睡覺，對手的 AI 仍在接待。
+                            </li>
+                            <li class="pain-list-item is-muted line-clamp-2">
+                                成為首批 CEO 合夥人，先把夜間與忙碌時段守住。
+                            </li>
+                        </ul>
                     </article>
                 </div>
             </div>
