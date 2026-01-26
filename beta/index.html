@@ -188,7 +188,7 @@
         }
 
         #roi .roi-title {
-            font-size: 40px;
+            font-size: 24px;
             font-weight: 700;
             line-height: 1.2;
             color: #ffffff;
@@ -338,7 +338,7 @@
         }
 
         #why-virtual-employees .why-title {
-            font-size: 40px;
+            font-size: 24px;
             font-weight: 700;
             line-height: 1.2;
             color: #ffffff;
@@ -393,11 +393,26 @@
             color: rgba(255, 255, 255, 0.74);
         }
 
+        .section-divider {
+            width: 96px;
+            height: 3px;
+            margin: 16px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(129, 140, 248, 0.2), rgba(129, 140, 248, 0.85), rgba(129, 140, 248, 0.2));
+        }
+
         #why-virtual-employees .why-card--2 .why-body {
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.82);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.74);
+        }
+
+        @media (min-width: 768px) {
+            #roi .roi-title,
+            #why-virtual-employees .why-title {
+                font-size: 30px;
+            }
         }
 
         @media (max-width: 1023px) {
@@ -666,6 +681,7 @@
             <div class="roi-container">
                 <header class="roi-header">
                     <h2 class="roi-title">算一筆帳：你每天被訊息偷走多少時間？</h2>
+                    <div class="section-divider" aria-hidden="true"></div>
                     <p class="roi-subtitle line-clamp-2">CEO 合夥人封測：先把重複接待交給虛擬團隊，時間拿回來做更重要的事。</p>
                 </header>
 
@@ -708,6 +724,7 @@
             <div class="why-container">
                 <header class="why-header">
                     <h2 class="why-title">為什麼你該選擇「虛擬員工」？</h2>
+                    <div class="section-divider" aria-hidden="true"></div>
                     <p class="why-subtitle">比起傳統招聘，KeFu 用更快的上線速度與更清楚的分工，先把接待流程穩住。</p>
                 </header>
 
