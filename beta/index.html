@@ -806,10 +806,13 @@
 
         <!-- Org Chart Modal -->
         <div id="org-modal"
-            class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/75 backdrop-blur-sm">
+            class="fixed inset-0 z-[70] hidden items-end justify-center bg-black/75 backdrop-blur-sm px-4 pb-4 sm:items-center sm:px-6 sm:pb-10">
             <div data-org-modal-overlay class="absolute inset-0 bg-black/80"></div>
             <div
-                class="relative w-[calc(100vw-2rem)] sm:max-w-2xl h-[75vh] sm:h-auto rounded-t-3xl rounded-b-none sm:rounded-2xl border border-brand-border/70 bg-brand-card shadow-2xl max-h-[75vh] sm:max-h-[85vh] flex flex-col">
+                class="relative w-full sm:max-w-2xl h-[75vh] sm:h-auto rounded-t-3xl rounded-b-none sm:rounded-2xl border border-brand-border/70 bg-brand-card shadow-2xl max-h-[75vh] sm:max-h-[85vh] flex flex-col">
+                <div class="flex justify-center pt-3 sm:hidden">
+                    <span class="h-1.5 w-12 rounded-full bg-white/30"></span>
+                </div>
                 <button type="button" data-org-modal-close
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-400/80">
                     <span class="sr-only">關閉視窗</span>
@@ -1244,10 +1247,13 @@
         
 
         <div id="beta-exchange-modal"
-            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
+            class="fixed inset-0 z-[70] hidden items-end justify-center px-4 pb-4 sm:items-center sm:px-6 sm:py-10 bg-black/75 backdrop-blur-sm"
             role="dialog" aria-modal="true" aria-labelledby="beta-exchange-title">
             <div
-                class="relative bg-brand-dark/95 border border-brand-border/70 rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/40">
+                class="relative bg-brand-dark/95 border border-brand-border/70 rounded-t-3xl rounded-b-none sm:rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/40">
+                <div class="flex justify-center pt-3 sm:hidden">
+                    <span class="h-1.5 w-12 rounded-full bg-white/30"></span>
+                </div>
                 <button type="button" data-modal-close="beta-exchange"
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
                     <span class="sr-only">關閉視窗</span>
@@ -1277,10 +1283,13 @@
         </div>
 
         <div id="beta-rules-modal"
-            class="fixed inset-0 z-[70] hidden items-center justify-center px-6 py-10 bg-black/75 backdrop-blur-sm"
+            class="fixed inset-0 z-[70] hidden items-end justify-center px-4 pb-4 sm:items-center sm:px-6 sm:py-10 bg-black/75 backdrop-blur-sm"
             role="dialog" aria-modal="true" aria-labelledby="beta-rules-title">
             <div
-                class="relative bg-brand-dark/95 border border-brand-border/70 rounded-2xl w-full max-w-3xl shadow-2xl shadow-black/40">
+                class="relative bg-brand-dark/95 border border-brand-border/70 rounded-t-3xl rounded-b-none sm:rounded-2xl w-full max-w-3xl shadow-2xl shadow-black/40">
+                <div class="flex justify-center pt-3 sm:hidden">
+                    <span class="h-1.5 w-12 rounded-full bg-white/30"></span>
+                </div>
                 <button type="button" data-modal-close="beta-rules"
                     class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/10 p-2 text-gray-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200/60">
                     <span class="sr-only">關閉視窗</span>
